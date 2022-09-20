@@ -23,10 +23,29 @@ body,
   flex-direction: column;
   justify-content: space-between;
 }
-
+/*******************************/
+/* HERO */
+/*******************************/
 .hero .container {
   min-height: 60vh;
   background-repeat: no-repeat;
 
   /* background-attachment: ; */
 }
+/*******************************/
+/* END HERO */
+/*******************************/
+/*******************************/
+/* CAROUSEL */
+/*******************************/
+.swiper .swiper-slide {
+  height: 15rem;
+  /* background-color: lightgray; */
+}
+.swiper-slide img {
+  height: 15rem;
+}
+
+/*******************************/
+/* END CAROUSEL */
+/*******************************/
