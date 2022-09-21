@@ -1,12 +1,14 @@
-import React from 'react';
-import Swiper from 'swiper';
-import useGetPopularMovies from '../../hooks/useGetPopularMovies';
+//Components
 import SwiperCarousel from '../media/SwiperCarousel';
 import Hero from './Hero';
+//Custom hooks
+import useGetPremiereMovies from '../../hooks/useGetPremiereMovies';
+import useGetPopularMovies from '../../hooks/useGetPopularMovies';
 
 const Home = () => {
   const [movies] = useGetPopularMovies();
-
+  const [premieresMovies] = useGetPremiereMovies();
+  console.log(premieresMovies);
   return (
     <section className="home flex-grow-1">
       <div className="container">
@@ -16,6 +18,7 @@ const Home = () => {
           </div>
         </div>
         <SwiperCarousel mediaItems={movies} />
+        <SwiperCarousel mediaItems={premieresMovies} />
       </div>
     </section>
   );

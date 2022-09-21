@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CardMedia = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   return (
     <article className="card">
       <img
