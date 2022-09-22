@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import * as moment from 'moment';
+// import * as moment from 'moment';
+import moment from 'moment';
 
 const useGetPremiereMovies = () => {
   const [movies, setMovies] = useState();
