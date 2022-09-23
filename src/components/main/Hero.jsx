@@ -1,3 +1,6 @@
+//Components
+import MainSearch from '../media/MainSearch';
+
 const Hero = ({ movies }) => {
   return (
     <section
@@ -8,7 +11,13 @@ const Hero = ({ movies }) => {
         }) center/cover`,
       }}
     >
-      <div className="container"></div>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 ">
+            <MainSearch />
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
