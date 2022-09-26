@@ -15,7 +15,7 @@ const Home = () => {
   const [popularMoviesKids] = useGetPopularMoviesKids();
   const [getBestMoviesOfYear] = useGetBestMoviesOfYeAR(moment().format('YYYY'));
   // console.log(premieresMovies);
-  console.log(moment().format('YYYY'));
+  // console.log(moment().format('YYYY'));
   return (
     <section className="home flex-grow-1">
       <div className="container">

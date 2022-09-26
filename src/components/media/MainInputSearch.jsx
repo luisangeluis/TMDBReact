@@ -1,20 +1,26 @@
+//Dependencies
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
-const MainSearch = () => {
+const MainInputSearch = () => {
+  const { register, handleSubmit } = useForm();
+  let navigate = useNavigate();
+
   const search = (data) => {
     console.log(data);
+    navigate(`/search/${data.search}`);
   };
 
   return (
     <form onSubmit={handleSubmit(search)}>
-      <div class="mb-3">
+      <div className="mb-3">
         <input
-          type="email"
+          type="text"
           className="form-control w-50"
-          id="exampleInputEmail1"
           aria-describedby="typeSearch"
           placeholder="Type your search"
+          {...register('search', { required: true })}
         />
         <button className="btn">Search</button>
       </div>
@@ -22,4 +28,4 @@ const MainSearch = () => {
   );
 };
 
-export default MainSearch;
+export default MainInputSearch;

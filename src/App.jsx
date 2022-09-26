@@ -3,6 +3,7 @@ import './App.css';
 //Components
 import Home from './components/main/Home';
 import MainLayout from './components/shared/MainLayout';
+import SearchView from './components/views/SearchView';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Route path="movies/:id" element={<h2>one movie</h2>} />
           <Route path="tv" element={<h2>tv</h2>} />
           <Route path="tv/:id" element={<h2>tv</h2>} />
-          <Route path="search/" element={<h2>Search</h2>} />
+          <Route path="search/:search" element={<SearchView />} />
         </Route>
       </Routes>
     </div>

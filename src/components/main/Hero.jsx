@@ -1,5 +1,5 @@
 //Components
-import MainSearch from '../media/MainSearch';
+import MainInputSearch from '../media/MainInputSearch';
 
 const Hero = ({ movies }) => {
   return (
@@ -14,7 +14,7 @@ const Hero = ({ movies }) => {
       <div className="container">
         <div className="row">
           <div className="col-12 ">
-            <MainSearch />
+            <MainInputSearch />
           </div>
         </div>
       </div>

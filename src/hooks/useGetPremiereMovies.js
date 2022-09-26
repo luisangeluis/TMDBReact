@@ -15,7 +15,7 @@ const useGetPremiereMovies = () => {
         `https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastDate}&primary_release_date.lte=${currentDate}&api_key=b0dd442bf37e49eecbb517b186e6f5ee`
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMovies(res.data.results);
       })
       .catch((error) => console.log(error));
