@@ -2,6 +2,7 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
 //Components
 import Home from './components/main/Home';
+import DetailMovie from './components/media/DetailMovie';
 import MainLayout from './components/shared/MainLayout';
 import SearchView from './components/views/SearchView';
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="tv" element={<h2>tv</h2>} />
           <Route path="tv/:id" element={<h2>tv</h2>} />
           <Route path="search/:search" element={<SearchView />} />
+          <Route path="detail/:id" element={<DetailMovie />} />
         </Route>
       </Routes>
     </div>

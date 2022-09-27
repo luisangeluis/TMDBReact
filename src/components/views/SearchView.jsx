@@ -2,8 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-//Components
-import CardMedia from '../media/CardMedia';
+import SearchedGroup from '../media/SearchedGroup';
 
 const SearchView = () => {
   const { search } = useParams();
@@ -24,14 +23,7 @@ const SearchView = () => {
   return (
     <section className="search-view">
       <div className="container">
-        <div className="row">
-          {media &&
-            media.map((element) => (
-              <div className="col-md-3" key={element.id}>
-                <CardMedia item={element} />
-              </div>
-            ))}
-        </div>
+        <SearchedGroup media={media} />
       </div>
     </section>
   );

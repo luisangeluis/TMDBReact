@@ -1,18 +1,25 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CardMedia = ({ item }) => {
-  // console.log(item);
+  let navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/detail/${item.id}`);
+  };
+
   return (
     <article className="card">
-      <img
-        src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-        alt=""
-        className="img-fluid"
-      />
-      {/* <div className="card-body">
-        <h3 className="card-title"></h3>
-        <p className="card-text"></p>
-      </div> */}
+      <button
+        className="btn d-flex justify-content-center align-items-center"
+        onClick={goToDetail}
+      >
+        <img
+          src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+          alt=""
+          className="img-fluid"
+        />
+      </button>
     </article>
   );
 };
