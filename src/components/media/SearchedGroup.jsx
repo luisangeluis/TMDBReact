@@ -6,7 +6,7 @@ const SearchedGroup = ({ media }) => {
     <div className="row">
       {media &&
         media.map((element) => (
-          <div className="col-md-3" key={element.id}>
+          <div className="col-md-4 col-lg-3" key={element.id}>
             <CardMedia item={element} />
           </div>
         ))}

@@ -5,6 +5,7 @@ import Home from './components/main/Home';
 import DetailMovie from './components/media/DetailMovie';
 import MainLayout from './components/shared/MainLayout';
 import SearchView from './components/views/SearchView';
+import MediaView from './components/views/MediaView';
 
 function App() {
   return (
@@ -12,12 +13,11 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="movies" element={<h2> movies</h2>} />
-          <Route path="movies/:id" element={<h2>one movie</h2>} />
-          <Route path="tv" element={<h2>tv</h2>} />
-          <Route path="tv/:id" element={<h2>tv</h2>} />
+          <Route path="movies" element={<MediaView />} />
+          <Route path="movies/:id" element={<DetailMovie />} />
+          <Route path="tv" element={<MediaView />} />
+          <Route path="tv/:id" element={<h2>one tv</h2>} />
           <Route path="search/:search" element={<SearchView />} />
-          <Route path="detail/:id" element={<DetailMovie />} />
         </Route>
       </Routes>
     </div>

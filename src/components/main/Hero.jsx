@@ -6,7 +6,7 @@ const Hero = ({ movies }) => {
     <section
       className="hero"
       style={{
-        background: `url(https://image.tmdb.org/t/p/original${
+        background: `url(https://image.tmdb.org/t/p/w500${
           movies && movies[0].poster_path
         }) center/cover`,
       }}

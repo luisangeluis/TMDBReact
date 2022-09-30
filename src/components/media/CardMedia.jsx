@@ -5,7 +5,11 @@ const CardMedia = ({ item }) => {
   let navigate = useNavigate();
 
   const goToDetail = () => {
-    navigate(`/detail/${item.id}`);
+    console.log(item);
+
+    console.log(item.media_type);
+    if (item.original_title) navigate(`/movies/${item.id}`);
+    if (item.original_name) navigate(`/tv/${item.id}`);
   };
 
   return (
@@ -15,7 +19,7 @@ const CardMedia = ({ item }) => {
         onClick={goToDetail}
       >
         <img
-          src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
           alt=""
           className="img-fluid"
         />

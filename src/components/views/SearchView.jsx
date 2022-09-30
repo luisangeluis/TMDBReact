@@ -11,6 +11,8 @@ const SearchView = () => {
   useEffect(() => {
     getSearch();
   }, [search]);
+
+  console.log(media);
   const getSearch = () => {
     axios
       .get(
