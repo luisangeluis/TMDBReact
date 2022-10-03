@@ -8,7 +8,7 @@ const CardMedia = ({ item }) => {
     console.log(item);
 
     console.log(item.media_type);
-    if (item.original_title) navigate(`/movies/${item.id}`);
+    if (item.original_title) navigate(`/movie/${item.id}`);
     if (item.original_name) navigate(`/tv/${item.id}`);
   };
 

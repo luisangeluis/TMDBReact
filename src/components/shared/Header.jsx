@@ -34,7 +34,7 @@ const Header = () => {
 
             <li className="nav-item">
               <NavLink
-                to="/movies"
+                to="/movie"
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }

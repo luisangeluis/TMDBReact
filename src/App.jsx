@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="movies" element={<MediaView />} />
-          <Route path="movies/:id" element={<DetailMovie />} />
+          <Route path="movie" element={<MediaView />} />
+          <Route path="movie/:id" element={<DetailMovie />} />
           <Route path="tv" element={<MediaView />} />
           <Route path="tv/:id" element={<h2>one tv</h2>} />
           <Route path="search/:search" element={<SearchView />} />
