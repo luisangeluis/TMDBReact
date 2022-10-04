@@ -15,7 +15,7 @@ const useGetMediaByGenre = (mediaType, genreId) => {
         `https://api.themoviedb.org/3/discover/${mediaType}?api_key=${key}&language=en-US&sort_by=popularity.desc&page=1&include_null_first_air_dates=false&with_genres=${genreId}`
       )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setMediaItems(res.data.results);
       })
       .catch((error) => console.log(error));

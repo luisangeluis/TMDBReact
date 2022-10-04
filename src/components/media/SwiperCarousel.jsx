@@ -6,7 +6,7 @@ import 'swiper/css';
 import CardMedia from './CardMedia';
 
 const SwiperCarousel = ({ mediaItems }) => {
-  console.log(mediaItems);
+  // console.log(mediaItems);
   return (
     <section className="row my-2 my-md-3">
       <div className="col-12">

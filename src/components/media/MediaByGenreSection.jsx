@@ -6,7 +6,7 @@ import SwiperCarousel from './SwiperCarousel';
 const MediaByGenreSection = ({ mediaType, genreId, genreName }) => {
   const [media] = useGetMediaByGenre(mediaType, genreId);
 
-  console.log(media);
+  // console.log(media);
   return (
     <section className="movies-by-genre">
       <div className="container">

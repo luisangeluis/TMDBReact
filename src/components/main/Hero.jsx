@@ -1,3 +1,5 @@
+//Dependencies
+import { useLocation } from 'react-router-dom';
 //Components
 import MainInputSearch from '../media/MainInputSearch';
 
