@@ -7,6 +7,7 @@ import MainLayout from './components/shared/MainLayout';
 import SearchView from './components/views/SearchView';
 import MediaView from './components/views/MediaView';
 import DetailTv from './components/media/DetailTv';
+import SearchByGenreView from './components/views/SearchByGenreView';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="tv" element={<MediaView />} />
           <Route path="tv/:id" element={<DetailTv />} />
           <Route path="search/:search" element={<SearchView />} />
+          <Route path="search-genre/:params" element={<SearchByGenreView />} />
         </Route>
       </Routes>
     </div>
