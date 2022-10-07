@@ -1,21 +1,16 @@
 //Dependencies
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 //Custom hooks
 import useGetMediaByGenre from '../../hooks/useGetMediaByGenre';
 //Components
 import SwiperCarousel from './SwiperCarousel';
-//Slices
-import { getMediaByGenre } from '../../store/slices/mediaByGenre.slice';
 
 const MediaByGenreSection = ({ mediaType, genreId, genreName }) => {
   const [media] = useGetMediaByGenre(mediaType, genreId);
   let navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const goToGenre = () => {
-    dispatch(getMediaByGenre(mediaType, genreId));
-    navigate('/search-genre');
+    navigate(`/search-genre/${mediaType}/${genreId}`);
   };
   // console.log(media);
   return (

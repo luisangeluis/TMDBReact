@@ -16,7 +16,7 @@ const useGetPopularTv = (mediaType) => {
     axios
       .get(url)
       .then((res) => {
-        console.log(res.data.results);
+        // console.log(res.data.results);
         setMediaItems(res.data.results);
       })
       .catch((error) => console.log(error));
