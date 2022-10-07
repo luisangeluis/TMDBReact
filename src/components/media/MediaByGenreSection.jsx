@@ -14,7 +14,7 @@ const MediaByGenreSection = ({ mediaType, genreId, genreName }) => {
   };
   // console.log(media);
   return (
-    <section className="movies-by-genre">
+    <section className="media-section">
       <div className="container">
         <div className="d-flex justify-content-between my-2 my-md-3">
           <h3>{genreName}</h3>
