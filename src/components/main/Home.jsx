@@ -1,5 +1,7 @@
 //Dependencies
-import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
 //Components
 import SwiperCarousel from '../media/SwiperCarousel';
 import Hero from './Hero';
@@ -8,6 +10,8 @@ import useGetPremiereMovies from '../../hooks/useGetPremiereMovies';
 import useGetPopularMovies from '../../hooks/useGetPopularMovies';
 import useGetPopularMoviesKids from '../../hooks/useGetPopularMoviesKids';
 import useGetBestMoviesOfYeAR from '../../hooks/useGetBestMoviesOfYear';
+//Slices
+import { getUsers } from '../../store/slices/users.slice';
 
 const Home = () => {
   const [movies] = useGetPopularMovies();
@@ -16,6 +20,12 @@ const Home = () => {
   const [getBestMoviesOfYear] = useGetBestMoviesOfYeAR(moment().format('YYYY'));
   // console.log(premieresMovies);
   // console.log(moment().format('YYYY'));
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUsers());
+  }, []);
+
   return (
     <section className="home flex-grow-1">
       <div className="container">
