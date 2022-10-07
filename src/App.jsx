@@ -20,7 +20,7 @@ function App() {
           <Route path="tv" element={<MediaView />} />
           <Route path="tv/:id" element={<DetailTv />} />
           <Route path="search/:search" element={<SearchView />} />
-          <Route path="search-genre/:params" element={<SearchByGenreView />} />
+          <Route path="search-genre/" element={<SearchByGenreView />} />
         </Route>
       </Routes>
     </div>

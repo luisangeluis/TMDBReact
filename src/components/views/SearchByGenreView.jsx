@@ -1,10 +1,11 @@
-import React from 'react';
+//Components
+import SearchedGroup from '../media/SearchedGroup';
 
 const SearchByGenreView = () => {
   return (
     <section className="search-view">
       <div className="container">
-        <SearchedGroup media={media} />
+        <SearchedGroup />
       </div>
     </section>
   );
