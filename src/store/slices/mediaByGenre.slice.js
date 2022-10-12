@@ -14,11 +14,14 @@ export const mediaByGenreSlice = createSlice({
 export const { setMediaByGenre } = mediaByGenreSlice.actions;
 export default mediaByGenreSlice.reducer;
 
-export const getMediaByGenre = (mediaType, genreId) => (dispatch) => {
+export const getMediaByGenre = (mediaType, genreId, params) => (dispatch) => {
   const key = 'b0dd442bf37e49eecbb517b186e6f5ee';
   return axios
     .get(
-      `https://api.themoviedb.org/3/discover/${mediaType}?api_key=${key}&language=en-US&include_null_first_air_dates=false&with_genres=${genreId}`
+      `https://api.themoviedb.org/3/discover/${mediaType}?api_key=${key}&language=en-US&include_null_first_air_dates=false&with_genres=${genreId}`,
+      {
+        params,
+      }
     )
     .then((res) => {
       console.log(res.data);
