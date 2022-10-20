@@ -5,6 +5,8 @@ import moment from 'moment';
 //Components
 import SwiperCarousel from '../media/SwiperCarousel';
 import Hero from './Hero';
+import MediaByQuerySection from '../media/MediaByQuerySection';
+
 //Custom hooks
 import useGetPremiereMovies from '../../hooks/useGetPremiereMovies';
 import useGetPopularMovies from '../../hooks/useGetPopularMovies';
@@ -14,8 +16,12 @@ import useGetBestMoviesOfYeAR from '../../hooks/useGetBestMoviesOfYear';
 import { getUsers } from '../../store/slices/users.slice';
 
 const Home = () => {
-  const [movies] = useGetPopularMovies();
+  // const [movies] = useGetPopularMovies();
+  const popularMedia = {
+    sort_by: 'popularity.desc',
+  };
   const [premieresMovies] = useGetPremiereMovies();
+  // const premieresMedia ={}
   const [popularMoviesKids] = useGetPopularMoviesKids();
   const [getBestMoviesOfYear] = useGetBestMoviesOfYeAR(moment().format('YYYY'));
   // console.log(premieresMovies);
@@ -31,11 +37,12 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 ">
-            <Hero movies={movies} />
+            <Hero movies={premieresMovies} />
           </div>
         </div>
-        <h3 className="mt-4 mt-md-5">Popular Movies</h3>
-        <SwiperCarousel mediaItems={movies} />
+        {/* <h3 className="mt-4 mt-md-5">Popular Movies</h3>
+        <SwiperCarousel mediaItems={movies} /> */}
+        <MediaByQuerySection mediaType={'movie'} query={popularMedia} />
         <h3 className="mt-4 mt-md-5">Premieres Movies</h3>
         <SwiperCarousel mediaItems={premieresMovies} />
         <h3 className="mt-4 mt-md-5">Popular Kids Movies</h3>
