@@ -18,7 +18,7 @@ export const getUsers = () => (dispatch) => {
   return axios
     .get('https://jsonplaceholder.typicode.com/users')
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       dispatch(setUsers(res.data));
     })
     .catch((error) => console.log(error));

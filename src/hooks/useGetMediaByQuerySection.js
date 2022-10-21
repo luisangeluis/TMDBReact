@@ -13,9 +13,9 @@ const useGetMediaByQuerySection = (mediaType, query) => {
     const baseUrl = 'https://api.themoviedb.org/3/discover/';
     const key = 'b0dd442bf37e49eecbb517b186e6f5ee';
     axios
-      .get(`${baseUrl}${mediaType}?${query}&api_key=${key}`)
+      .get(`${baseUrl}${mediaType}?api_key=${key}`, { params: query })
       .then((res) => {
-        console.log(res.data.results);
+        console.log(res);
         setMedia(res.data.results);
       })
       .catch((error) => console.log(error));

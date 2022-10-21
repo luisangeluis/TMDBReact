@@ -9,7 +9,8 @@ const useGetPremiereMovies = () => {
   useEffect(() => {
     const currentDate = moment().format('YYYY-MM-DD');
     const lastDate = moment().subtract(1, 'months').format('YYYY-MM-DD');
-
+    // console.log(currentDate);
+    // console.log(lastDate);
     axios
       .get(
         `https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastDate}&primary_release_date.lte=${currentDate}&api_key=b0dd442bf37e49eecbb517b186e6f5ee`

@@ -11,7 +11,6 @@ const MediaByQuerySection = ({ mediaType, query }) => {
     <section className="media-section">
       <div className="container">
         {media && <SwiperCarousel mediaItems={media} />}
-        <h3>hola</h3>
       </div>
     </section>
   );

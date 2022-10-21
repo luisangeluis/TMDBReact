@@ -2,30 +2,39 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import moment from 'moment';
-//Components
-import SwiperCarousel from '../media/SwiperCarousel';
-import Hero from './Hero';
-import MediaByQuerySection from '../media/MediaByQuerySection';
-
 //Custom hooks
-import useGetPremiereMovies from '../../hooks/useGetPremiereMovies';
-import useGetPopularMovies from '../../hooks/useGetPopularMovies';
-import useGetPopularMoviesKids from '../../hooks/useGetPopularMoviesKids';
 import useGetBestMoviesOfYeAR from '../../hooks/useGetBestMoviesOfYear';
 //Slices
 import { getUsers } from '../../store/slices/users.slice';
+//Components
+import Hero from './Hero';
+import MediaByQuerySection from '../media/MediaByQuerySection';
+//Utils
+import {
+  getDateLastMonth,
+  getCurrentDate,
+  getCurrentYear,
+} from '../../utils/getFechas';
 
 const Home = () => {
-  // const [movies] = useGetPopularMovies();
   const popularMedia = {
     sort_by: 'popularity.desc',
   };
-  const [premieresMovies] = useGetPremiereMovies();
-  // const premieresMedia ={}
-  const [popularMoviesKids] = useGetPopularMoviesKids();
+  const premieresMedia = {
+    'primary_release_date.gte': getDateLastMonth(),
+    'primary_release_date.lte': getCurrentDate(),
+  };
+  const popularKidsMedia = {
+    certification_country: 'US',
+    'certification.lte': 'G',
+    sort_by: 'popularity.desc',
+  };
+  const bestMediaOfYear = {
+    primary_release_year: getCurrentYear(),
+    sort_by: 'vote_average.desc',
+  };
+
   const [getBestMoviesOfYear] = useGetBestMoviesOfYeAR(moment().format('YYYY'));
-  // console.log(premieresMovies);
-  // console.log(moment().format('YYYY'));
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,18 +46,13 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 ">
-            <Hero movies={premieresMovies} />
+            <Hero movies={getBestMoviesOfYear} />
           </div>
         </div>
-        {/* <h3 className="mt-4 mt-md-5">Popular Movies</h3>
-        <SwiperCarousel mediaItems={movies} /> */}
         <MediaByQuerySection mediaType={'movie'} query={popularMedia} />
-        <h3 className="mt-4 mt-md-5">Premieres Movies</h3>
-        <SwiperCarousel mediaItems={premieresMovies} />
-        <h3 className="mt-4 mt-md-5">Popular Kids Movies</h3>
-        <SwiperCarousel mediaItems={popularMoviesKids} />
-        <h3 className="mt-4 mt-md-5">Best Movies Year</h3>
-        <SwiperCarousel mediaItems={getBestMoviesOfYear} />
+        <MediaByQuerySection mediaType={'movie'} query={premieresMedia} />
+        <MediaByQuerySection mediaType={'movie'} query={popularKidsMedia} />
+        <MediaByQuerySection mediaType={'movie'} query={bestMediaOfYear} />
       </div>
     </section>
   );
