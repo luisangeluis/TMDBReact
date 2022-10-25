@@ -15,7 +15,7 @@ const useGetMediaByQuerySection = (mediaType, query) => {
     axios
       .get(`${baseUrl}${mediaType}?api_key=${key}`, { params: query })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMedia(res.data.results);
       })
       .catch((error) => console.log(error));

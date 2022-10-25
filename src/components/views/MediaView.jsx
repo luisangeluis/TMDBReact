@@ -5,8 +5,10 @@ import { useLocation } from 'react-router-dom';
 import useGetPopularTv from '../../hooks/useGetPopularTv';
 //Slices
 import { getGenresMedia } from '../../store/slices/genresMedia.slice';
+//Components
 import Hero from '../main/Hero';
 import MediaByGenreSection from '../media/MediaByGenreSection';
+import MediaByQuerySection from '../media/MediaByQuerySection';
 
 const MediaView = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,10 @@ const MediaView = () => {
   const mediaType = location.pathname.replace(/\//gi, '');
   const genresIds = useSelector((state) => state.genresMedia);
   const [mediaItems] = useGetPopularTv(mediaType);
+
+  if (genresIds) {
+    console.log(genresIds);
+  }
   useEffect(() => {
     dispatch(getGenresMedia(mediaType));
   }, [mediaType]);
@@ -26,12 +32,14 @@ const MediaView = () => {
             <Hero movies={mediaItems} />
             {genresIds &&
               genresIds.map((genre) => (
-                <MediaByGenreSection
-                  mediaType={mediaType}
-                  genreId={genre.id}
-                  genreName={genre.name}
-                  key={genre.id}
-                />
+                <>
+                  <h3>{genre.name}</h3>
+                  <MediaByQuerySection
+                    mediaType={mediaType}
+                    query={{ with_genres: genre.id }}
+                    key={genre.id}
+                  />
+                </>
               ))}
           </div>
         </div>

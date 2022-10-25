@@ -8,6 +8,7 @@ import SearchView from './components/views/SearchView';
 import MediaView from './components/views/MediaView';
 import DetailTv from './components/media/DetailTv';
 import SearchByGenreView from './components/views/SearchByGenreView';
+import SearchByQueryView from './components/views/SearchByQueryView';
 
 function App() {
   return (
@@ -22,8 +23,10 @@ function App() {
           <Route path="search/:search" element={<SearchView />} />
           <Route
             path="search-genre/:mediaType/:genreId"
+            x
             element={<SearchByGenreView />}
           />
+          <Route path="search-query" element={<SearchByQueryView />} />
         </Route>
       </Routes>
     </div>
