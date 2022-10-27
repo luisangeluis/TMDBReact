@@ -1,15 +1,18 @@
 //Dependencies
-import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const MainInputSearch = () => {
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
 
   const search = (data) => {
-    console.log(data);
-    navigate(`/search/${data.search}`);
+    // console.log(data);
+    // navigate(`/search/${data.search}`);
+    dispatch(getMediaByName(data.search));
+    navigate(`/search-query`);
   };
 
   return (
