@@ -2,6 +2,8 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+//Slices
+import { getMediaByName } from '../../store/slices/mediaByQuery.slice';
 
 const MainInputSearch = () => {
   const dispatch = useDispatch();
