@@ -5,7 +5,7 @@ import useGetMediaByGenre from '../../hooks/useGetMediaByGenre';
 //Components
 import SwiperCarousel from './SwiperCarousel';
 
-const MediaByGenreSection = ({ mediaType, genreId }) => {
+const MediaByGenreSection = ({ mediaType, genreId, name }) => {
   const [media] = useGetMediaByGenre(mediaType, genreId);
   let navigate = useNavigate();
 
@@ -17,10 +17,10 @@ const MediaByGenreSection = ({ mediaType, genreId }) => {
     <section className="media-section">
       <div className="container">
         <div className="d-flex justify-content-between my-2 my-md-3">
-          {/* <h3>{genreName}</h3> */}
-          {/* <button className="btn btn-secondary" onClick={goToGenre}>
-            Ir a {genreName}
-          </button> */}
+          <h3>{name}</h3>
+          <button className="btn btn-secondary" onClick={goToGenre}>
+            Ir a {name}
+          </button>
         </div>
         {media && <SwiperCarousel mediaItems={media} />}
       </div>
