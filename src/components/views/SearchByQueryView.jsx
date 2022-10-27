@@ -1,8 +1,12 @@
+//Depedencies
+import { useSelector } from 'react-redux';
+
 //Components
-import React from 'react';
 import SearchedGroup from '../media/SearchedGroup';
 
 const SearchByQueryView = () => {
+  const mediaByQuery = useSelector((state) => state.mediaByQuery);
+
   return (
     <section className="search-view">
       <div className="container">
