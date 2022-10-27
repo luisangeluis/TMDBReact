@@ -32,14 +32,14 @@ const MediaView = () => {
             <Hero movies={mediaItems} />
             {genresIds &&
               genresIds.map((genre) => (
-                <>
+                <div key={genre.id}>
                   <h3>{genre.name}</h3>
                   <MediaByQuerySection
                     mediaType={mediaType}
                     query={{ with_genres: genre.id }}
-                    key={genre.id}
+                    // key={genre.id}
                   />
-                </>
+                </div>
               ))}
           </div>
         </div>
