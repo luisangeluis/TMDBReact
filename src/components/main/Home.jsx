@@ -28,6 +28,7 @@ const Home = () => {
     certification_country: 'US',
     'certification.lte': 'G',
     sort_by: 'popularity.desc',
+    include_adult: false,
   };
   const bestMediaOfYear = {
     primary_release_year: getCurrentYear(),
