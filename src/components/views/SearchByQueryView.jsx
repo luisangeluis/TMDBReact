@@ -7,6 +7,8 @@ import SearchedGroup from '../media/SearchedGroup';
 const SearchByQueryView = () => {
   const mediaByQuery = useSelector((state) => state.mediaByQuery);
 
+  console.log(mediaByQuery);
+
   return (
     <section className="search-view">
       <div className="container">
@@ -15,7 +17,7 @@ const SearchByQueryView = () => {
             <InputFilterYear addQuery={addQuery} />
           </div> */}
           <div className="col-md-10">
-            {/* {mediaByGenre && <SearchedGroup media={mediaByGenre} />} */}
+            {mediaByQuery && <SearchedGroup media={mediaByQuery} />}
           </div>
         </div>
       </div>

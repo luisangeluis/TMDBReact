@@ -20,8 +20,11 @@ export const getMediaByQuery = (mediaType, query) => (dispatch) => {
 
   return axios
     .get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=${key}`, {
-      query,
+      params: query,
     })
-    .then((res) => console.log(res))
+    .then((res) => {
+      console.log(res);
+      dispatch(setMediaByQuery(res.data.results));
+    })
     .catch((error) => console.log(error.message));
 };
