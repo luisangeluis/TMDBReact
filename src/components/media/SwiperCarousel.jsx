@@ -1,6 +1,8 @@
 //Dependencies
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import { Controller, Pagination } from 'swiper';
 import 'swiper/css';
 //Components
 import CardMedia from './CardMedia';
@@ -10,7 +12,16 @@ const SwiperCarousel = ({ mediaItems }) => {
   return (
     <section className="row my-2 my-md-3">
       <div className="col-12">
-        <Swiper spaceBetween={15} slidesPerView={3} className="">
+        <Swiper
+          spaceBetween={1}
+          slidesPerView={4}
+          // pagination={{
+          //   clickable: true,
+          // }}
+          // modules={[Pagination]}
+          modules={[Navigation]}
+          navigation={true}
+        >
           {mediaItems &&
             mediaItems.map((element) => (
               <SwiperSlide key={element.id}>

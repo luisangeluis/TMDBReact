@@ -47,12 +47,67 @@ body,
 /*******************************/
 /* CAROUSEL */
 /*******************************/
-.swiper .swiper-slide {
-  height: 15rem;
-  /* background-color: lightgray; */
+
+.swiper {
+  display: flex;
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
 }
 .swiper-slide img {
   height: 15rem;
+  width: 75%;
+}
+
+.card {
+  max-height: 100%;
+}
+/* .swiper-pagination-bullets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+}
+.swiper-pagination-bullet {
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin: 0 5px;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+} */
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 3%;
+  height: 50%;
+  margin: 0 10px;
+  background-color: red;
+  position: absolute;
+  z-index: 3;
+  top: 25%;
+}
+
+.swiper-button-prev {
+  left: 10px;
+  /* background-color: transparent; */
+}
+.swiper-button-prev::after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  /* esta es la parte importante */
+  border: transparent solid 10px;
+  border-right-color: black;
+}
+.swiper-button-next {
+  right: 10px;
 }
 
 /*******************************/
