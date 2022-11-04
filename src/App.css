@@ -51,6 +51,9 @@ body,
 .swiper {
   position: relative;
 }
+.swiper-slide {
+  min-width: 100%;
+}
 .swiper-slide img {
   height: 15rem;
   width: 75%;
@@ -65,8 +68,8 @@ body,
 }
 .swiper-button-prev,
 .swiper-button-next {
-  width: 5vmin;
-  height: 5vmin;
+  width: 10vmin;
+  height: 10vmin;
   box-sizing: border-box;
   position: absolute;
   z-index: 2;
@@ -74,13 +77,13 @@ body,
 }
 
 .swiper-button-prev {
-  left: 5%;
+  left: 10%;
   top: 40%;
   transform: rotate(-130deg);
 }
 
 .swiper-button-next {
-  right: 5%;
+  right: 10%;
   top: 40%;
   transform: rotate(45deg);
 }
@@ -119,3 +122,40 @@ body,
 /*******************************/
 /* END CAROUSEL */
 /*******************************/
+@media (min-width: 576px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 5vmin;
+    height: 5vmin;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    padding: 10px;
+  }
+  .swiper-slide {
+    min-width: 50%;
+  }
+  .swiper-button-prev {
+    left: 5%;
+    top: 40%;
+    transform: rotate(-130deg);
+  }
+
+  .swiper-button-next {
+    right: 5%;
+    top: 40%;
+    transform: rotate(45deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper-slide {
+    min-width: 33.3%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .swiper-slide {
+    min-width: 20%;
+  }
+}
