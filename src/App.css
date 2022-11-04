@@ -59,14 +59,14 @@ body,
 .card {
   max-height: 100%;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
-  width: 3vmin;
-  height: 3vmin;
+  width: 5vmin;
+  height: 5vmin;
   box-sizing: border-box;
   position: absolute;
   z-index: 2;
-  border: 1px solid;
   padding: 10px;
 }
 
@@ -87,9 +87,9 @@ body,
   content: '';
   width: 100%;
   height: 100%;
-  border-width: 0.5vmin 0.5vmin 0 0;
+  border-width: 0.9vmin 0.9vmin 0 0;
   border-style: solid;
-  border-color: black;
+  border-color: white;
   transition: 0.2s ease;
   display: block;
   transform-origin: 100% 0;
@@ -102,17 +102,17 @@ body,
   top: -100%;
   width: 100%;
   height: 100%;
-  border-width: 0 0.5vmin 0 0;
+  border-width: 0 0.9vmin 0 0;
   border-style: solid;
-  border-color: black;
+  border-color: white;
   transform-origin: 100% 0;
   transition: 0.2s ease;
 }
-/* .swiper-button-next {
-  right: 10%;
-  top: 50%;
-} */
 
+.swiper-button-disabled::after,
+.swiper-button-disabled::before {
+  border-color: gray;
+}
 /*******************************/
 /* END CAROUSEL */
 /*******************************/
