@@ -58,8 +58,11 @@ body,
 
 .card {
   max-height: 100%;
+  max-width: 95%;
 }
-
+.card img {
+  width: 100%;
+}
 .swiper-button-prev,
 .swiper-button-next {
   width: 5vmin;

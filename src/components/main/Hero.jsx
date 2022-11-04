@@ -13,7 +13,7 @@ const Hero = ({ movies }) => {
         }) center/cover`,
       }}
     >
-      <div className="container">
+      <div className="container d-flex justify-content-end align-items-start p-3 p-md-4">
         <div className="row">
           <div className="col-12 ">
             <MainInputSearch />

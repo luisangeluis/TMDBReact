@@ -23,7 +23,6 @@ function App() {
           <Route path="search/:search" element={<SearchView />} />
           <Route
             path="search-genre/:mediaType/:genreId"
-            x
             element={<SearchByGenreView />}
           />
           <Route path="search-query" element={<SearchByQueryView />} />

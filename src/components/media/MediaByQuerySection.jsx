@@ -16,6 +16,7 @@ const MediaByQuerySection = ({ mediaType, query }) => {
 
   const goToGenre = () => {
     dispatch(getMediaByQuery(mediaType, query));
+    localStorage.setItem('mediaByQuery', JSON.stringify(query));
     navigate(`/search-query`);
   };
 

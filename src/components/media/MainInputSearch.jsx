@@ -18,16 +18,18 @@ const MainInputSearch = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(search)}>
-      <div className="mb-3">
+    <form onSubmit={handleSubmit(search)} className="row g-3">
+      <div className="col-auto">
         <input
           type="text"
-          className="form-control w-50"
+          className="form-control"
           aria-describedby="typeSearch"
           placeholder="Type your search"
           {...register('search', { required: true })}
         />
-        <button className="btn">Search</button>
+      </div>
+      <div className="col-auto">
+        <button className="btn btn-secondary">Search</button>
       </div>
     </form>
   );
