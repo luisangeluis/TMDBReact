@@ -9,11 +9,11 @@ import { getMediaByQuery } from '../../store/slices/mediaByQuery.slice';
 import React from 'react';
 import SwiperCarousel from './SwiperCarousel';
 
-const MediaByQuerySection = ({ mediaType, query }) => {
+const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
   const dispatch = useDispatch();
   const [media] = useGetMediaByQuerySection(mediaType, query);
   let navigate = useNavigate();
-
+  // console.log(media);
   const goToGenre = () => {
     dispatch(getMediaByQuery(mediaType, query));
     localStorage.setItem('mediaByQuery', JSON.stringify(query));
@@ -24,9 +24,13 @@ const MediaByQuerySection = ({ mediaType, query }) => {
     <>
       <section className="media-section">
         <div className="container">
-          <button className="btn btn-secondary" onClick={goToGenre}>
-            Ir
-          </button>
+          <div className="d-flex justify-content-between my-2 my-md-3">
+            <h3>{subtitle}</h3>
+            <button className="btn btn-secondary" onClick={goToGenre}>
+              {`Ir a ${subtitle}`}
+            </button>
+          </div>
+
           {media && <SwiperCarousel mediaItems={media} />}
         </div>
       </section>

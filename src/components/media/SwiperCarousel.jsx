@@ -13,8 +13,8 @@ const SwiperCarousel = ({ mediaItems }) => {
     <section className="row my-2 my-md-3">
       <div className="col-12">
         <Swiper
-          spaceBetween={0}
-          // slidesPerView={}
+          spaceBetween={2}
+          slidesPerView={'auto'}
           // pagination={{
           //   clickable: true,
           // }}

@@ -51,25 +51,20 @@ body,
 .swiper {
   position: relative;
 }
-.swiper-slide {
-  min-width: 100%;
+
+.swiper .swiper-slide {
+  width: 100%;
+  height: inherit;
 }
 .swiper-slide img {
   height: 15rem;
-  width: 75%;
-}
-
-.card {
-  max-height: 100%;
-  max-width: 95%;
-}
-.card img {
   width: 100%;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
-  width: 10vmin;
-  height: 10vmin;
+  width: 5vh;
+  height: 5vh;
   box-sizing: border-box;
   position: absolute;
   z-index: 2;
@@ -123,39 +118,27 @@ body,
 /* END CAROUSEL */
 /*******************************/
 @media (min-width: 576px) {
-  .swiper-button-prev,
-  .swiper-button-next {
-    width: 5vmin;
-    height: 5vmin;
-    box-sizing: border-box;
-    position: absolute;
-    z-index: 2;
-    padding: 10px;
-  }
-  .swiper-slide {
-    min-width: 50%;
-  }
-  .swiper-button-prev {
-    left: 5%;
-    top: 40%;
-    transform: rotate(-130deg);
-  }
-
-  .swiper-button-next {
-    right: 5%;
-    top: 40%;
-    transform: rotate(45deg);
-  }
 }
 
 @media (min-width: 768px) {
-  .swiper-slide {
-    min-width: 33.3%;
+  .swiper .swiper-slide {
+    width: 50%;
+  }
+  .swiper-button-prev {
+    left: 3%;
+  }
+
+  .swiper-button-next {
+    right: 3%;
   }
 }
-
+@media (min-width: 992px) {
+  .swiper .swiper-slide {
+    width: 25%;
+  }
+}
 @media (min-width: 1200px) {
-  .swiper-slide {
-    min-width: 20%;
+  .swiper .swiper-slide {
+    width: 20%;
   }
 }

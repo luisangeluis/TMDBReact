@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CardMedia = ({ item }) => {
   let navigate = useNavigate();
-
+  console.log(item);
   const goToDetail = () => {
     console.log(item);
 
@@ -13,17 +13,20 @@ const CardMedia = ({ item }) => {
   };
 
   return (
-    <article className="card justify-content-center border rounded">
+    <article className="card justify-content-center border-1 rounded bg-light">
       <button
-        className="btn d-flex justify-content-center align-items-center p-3 p-md-2"
+        className="btn d-flex justify-content-center align-items-center p-1 p-md-2"
         onClick={goToDetail}
       >
         <img
           src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
           alt=""
-          className="img-fluid"
+          className="img-fluid rounded"
         />
       </button>
+      <div className="card-body p-1 rounded">
+        <p className="card-title m-0 p-1 p-md-2 fw-bolder">{item.title}</p>
+      </div>
     </article>
   );
 };

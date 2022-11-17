@@ -50,14 +50,30 @@ const Home = () => {
             <Hero movies={getBestMoviesOfYear} />
           </div>
         </div>
-        <h3>Popular movies</h3>
-        <MediaByQuerySection mediaType={'movie'} query={popularMedia} />
-        <h3>Premieres movies</h3>
-        <MediaByQuerySection mediaType={'movie'} query={premieresMedia} />
-        <h3>Popular kids movies</h3>
-        <MediaByQuerySection mediaType={'movie'} query={popularKidsMedia} />
-        <h3>Best movies of year</h3>
-        <MediaByQuerySection mediaType={'movie'} query={bestMediaOfYear} />
+        {/* <h3 className="d-inline">Popular movies</h3> */}
+        <MediaByQuerySection
+          mediaType={'movie'}
+          query={popularMedia}
+          subtitle={'Popular movies'}
+        />
+        {/* <h3>Premieres movies</h3> */}
+        <MediaByQuerySection
+          mediaType={'movie'}
+          query={premieresMedia}
+          subtitle={'Premieres movies'}
+        />
+        {/* <h3>Popular movies kids</h3> */}
+        <MediaByQuerySection
+          mediaType={'movie'}
+          query={popularKidsMedia}
+          subtitle={'Popular movies kids'}
+        />
+        {/* <h3>Best movies of year</h3> */}
+        <MediaByQuerySection
+          mediaType={'movie'}
+          query={bestMediaOfYear}
+          subtitle={'Best movies of year'}
+        />
       </div>
     </section>
   );
