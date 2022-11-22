@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg bg-custom-blue">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           TMDB Api
@@ -20,8 +20,8 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 p-3">
+            {/* <li className="nav-item">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -30,13 +30,13 @@ const Header = () => {
               >
                 Home
               </NavLink>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <NavLink
                 to="/movie"
                 className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
+                  isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
                 }
               >
                 Movies
@@ -46,27 +46,12 @@ const Header = () => {
               <NavLink
                 to="/tv"
                 className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
+                  isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
                 }
               >
                 Tv shows
               </NavLink>
             </li>
-
-            {/* <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="hola">
-                hola
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Movies
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link">Tv shows</a>
-            </li> */}
           </ul>
         </div>
       </div>

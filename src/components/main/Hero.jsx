@@ -6,7 +6,7 @@ import MainInputSearch from '../media/MainInputSearch';
 const Hero = ({ movies }) => {
   return (
     <section
-      className="hero"
+      className="hero my-2 my-md-2 rounded"
       style={{
         background: `url(https://image.tmdb.org/t/p/w500${
           movies && movies[0].poster_path

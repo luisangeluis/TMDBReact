@@ -25,7 +25,7 @@ const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
       <section className="media-section">
         <div className="container">
           <div className="d-flex justify-content-between my-2 my-md-3">
-            <h3>{subtitle}</h3>
+            <h3 className="text-white">{subtitle}</h3>
             <button className="btn btn-secondary" onClick={goToGenre}>
               {`Ir a ${subtitle}`}
             </button>

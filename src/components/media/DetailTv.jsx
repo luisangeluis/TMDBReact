@@ -30,8 +30,8 @@ const DetailTv = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="row">
-              <div className=" col-md-4">
+            <div className="row bg-light border border-2 rounded m-2 m-md-3">
+              <div className=" col-md-5 d-flex justify-content-center align-items-center">
                 <article className="card align-items-center border-0">
                   <img
                     src={`https://image.tmdb.org/t/p/original${detail?.poster_path}`}
@@ -40,10 +40,12 @@ const DetailTv = () => {
                   />
                 </article>
               </div>
-              <div className=" col-md-8">
-                <article className="card">
-                  <h3 className="card-title">{detail?.title}</h3>
-                  <p className="card-text">{detail?.overview}</p>
+              <div className=" col-md-7">
+                <article className="card p-2 p-md-3 border-0 m-2 m-md-3 ">
+                  <h3 className="card-title">{detail?.name}</h3>
+                  <p className="card-text">
+                    {detail?.overview ? detail.overview : 'Without descriptión'}
+                  </p>
                 </article>
               </div>
             </div>

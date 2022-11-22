@@ -25,7 +25,9 @@ const CardMedia = ({ item }) => {
         />
       </button>
       <div className="card-body p-1 rounded d-flex justify-content-center align-items-start">
-        <p className="card-title m-0 p-1 p-md-2 fw-bolder">{item.title}</p>
+        <p className="card-title m-0 p-1 p-md-2 fw-bolder">
+          {item.title ? item.title : item.name}
+        </p>
       </div>
     </article>
   );
