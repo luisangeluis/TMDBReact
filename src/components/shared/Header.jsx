@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-custom-blue">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg bg-custom-green">
+      <div className="container-fluid p-3 p-lg-1">
         <a className="navbar-brand" href="#">
           TMDB Api
         </a>
