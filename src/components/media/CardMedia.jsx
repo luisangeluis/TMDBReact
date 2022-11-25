@@ -19,7 +19,7 @@ const CardMedia = ({ item }) => {
         onClick={goToDetail}
       >
         <img
-          src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
           alt=""
           className="img-fluid rounded w-100 p-1"
         />
