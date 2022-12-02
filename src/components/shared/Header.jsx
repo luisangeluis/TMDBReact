@@ -41,6 +41,16 @@ const Header = () => {
                 Tv shows
               </NavLink>
             </li>
+            {/* <li className="nav-item">
+              <NavLink
+                to="media-type/movie"
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
+                }
+              >
+                Tv shows
+              </NavLink>
+            </li> */}
           </ul>
         </div>
       </div>
