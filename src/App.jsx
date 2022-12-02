@@ -18,9 +18,8 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="movie" element={<MediaView />} />
-          {/* <Route path="movie/:id" element={<DetailMovie />} /> */}
           <Route path="tv" element={<MediaView />} />
-          {/* <Route path="tv/:id" element={<DetailTv />} /> */}
+          <Route path="media-type/:type/id/:id" element={<DetailMedia />} />
           <Route path="search/:search" element={<SearchView />} />
           <Route
             path="search-genre/:mediaType/:genreId"
@@ -28,7 +27,6 @@ function App() {
           />
           <Route path="search-query" element={<SearchByQueryView />} />
           {/* Fixing routes */}
-          <Route path="media-type/:type/id/:id" element={<DetailMedia />} />
         </Route>
       </Routes>
     </div>
