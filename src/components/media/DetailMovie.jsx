@@ -1,19 +1,22 @@
 //Dependencies
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 //Custom hooks
-import useGetSimiliarMovies from '../../hooks/useGetSimilarMovies';
+import useGetSimiliarMedia from '../../hooks/useGetSimilarMedia';
+//Utils
+import getFirstUrlParam from '../../utils/getFirstUrlParam';
 //Components
-import CardMedia from './CardMedia';
+import SimilarMedia from './SimilarMedia';
 
 const DetailMovie = () => {
   const { id } = useParams();
-
+  const location = useLocation();
+  const url = location.pathname;
+  const mediaType = getFirstUrlParam(url);
   const [detail, setDetail] = useState();
-  const [similarMovies] = useGetSimiliarMovies(id);
-  console.log(similarMovies);
-
+  const [similarMedia] = useGetSimiliarMedia(id, mediaType);
+  // console.log(similarMovies);
   useEffect(() => {
     getDetailMovie();
   }, [id]);
@@ -63,16 +66,7 @@ const DetailMovie = () => {
             </div>
           </div>
         </article>
-        <article className="row similar-media">
-          {similarMovies &&
-            similarMovies.map((movie) => {
-              return (
-                <div className="col-md-6 col-lg-3">
-                  <CardMedia item={movie} key={movie.backdrop_path} />
-                </div>
-              );
-            })}
-        </article>
+        <SimilarMedia similarMedia={similarMedia} />
       </div>
     </section>
   );
