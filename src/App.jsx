@@ -9,6 +9,7 @@ import MediaView from './components/views/MediaView';
 import DetailTv from './components/media/DetailTv';
 import SearchByGenreView from './components/views/SearchByGenreView';
 import SearchByQueryView from './components/views/SearchByQueryView';
+import DetailMedia from './components/media/DetailMedia';
 
 function App() {
   return (
@@ -17,15 +18,17 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="movie" element={<MediaView />} />
-          <Route path="movie/:id" element={<DetailMovie />} />
+          {/* <Route path="movie/:id" element={<DetailMovie />} /> */}
           <Route path="tv" element={<MediaView />} />
-          <Route path="tv/:id" element={<DetailTv />} />
+          {/* <Route path="tv/:id" element={<DetailTv />} /> */}
           <Route path="search/:search" element={<SearchView />} />
           <Route
             path="search-genre/:mediaType/:genreId"
             element={<SearchByGenreView />}
           />
           <Route path="search-query" element={<SearchByQueryView />} />
+          {/* Fixing routes */}
+          <Route path="media-type/:type/id/:id" element={<DetailMedia />} />
         </Route>
       </Routes>
     </div>
