@@ -1,15 +1,20 @@
 //Dependencies
 import { useLocation } from 'react-router-dom';
+import useGetPopularMedia from '../../hooks/useGetPopularMedia';
 //Components
 import MainInputSearch from '../media/MainInputSearch';
 
-const Hero = ({ movies }) => {
+const Hero = ({ mediaType, querys }) => {
+  let type = mediaType || 'movie';
+  let query = querys || { language: 'en-US', page: 1 };
+  const [media] = useGetPopularMedia(type, query);
+
   return (
     <section
       className="hero my-2 my-md-2 rounded"
       style={{
         background: `url(https://image.tmdb.org/t/p/w500${
-          movies && movies[0].poster_path
+          media && media[0].poster_path
         }) center/cover`,
       }}
     >
