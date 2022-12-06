@@ -1,7 +1,7 @@
 //Depedencies
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useGetPopularTv from '../../hooks/useGetPopularTv';
 //Slices
 import { getGenresMedia } from '../../store/slices/genresMedia.slice';
@@ -12,17 +12,16 @@ import MediaByQuerySection from '../media/MediaByQuerySection';
 
 const MediaView = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const mediaType = location.pathname.replace(/\//gi, '');
   const genresIds = useSelector((state) => state.genresMedia);
-  const [mediaItems] = useGetPopularTv(mediaType);
+  const { type } = useParams();
+  const [mediaItems] = useGetPopularTv(type);
 
   if (genresIds) {
     console.log(genresIds);
   }
   useEffect(() => {
-    dispatch(getGenresMedia(mediaType));
-  }, [mediaType]);
+    dispatch(getGenresMedia(type));
+  }, [type]);
 
   return (
     <section className="media-view">
@@ -33,7 +32,7 @@ const MediaView = () => {
             {genresIds &&
               genresIds.map((genre) => (
                 <MediaByGenreSection
-                  mediaType={mediaType}
+                  mediaType={type}
                   // query={{ with_genres: genre.id }}
                   genreId={genre.id}
                   name={genre.name}

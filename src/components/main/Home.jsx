@@ -39,7 +39,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUsers());
+    // dispatch(getUsers());
   }, []);
 
   return (

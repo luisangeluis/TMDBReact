@@ -17,10 +17,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="movie" element={<MediaView />} />
-          <Route path="tv" element={<MediaView />} />
-          {/* <Route path="media-type/:type" element={<MediaView />} /> */}
-
+          <Route path="media-type/:type" element={<MediaView />} />
           <Route path="media-type/:type/id/:id" element={<DetailMedia />} />
           <Route path="search/:search" element={<SearchView />} />
           <Route
@@ -28,7 +25,6 @@ function App() {
             element={<SearchByGenreView />}
           />
           <Route path="search-query" element={<SearchByQueryView />} />
-          {/* Fixing routes */}
         </Route>
       </Routes>
     </div>

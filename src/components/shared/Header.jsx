@@ -23,7 +23,7 @@ const Header = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 p-3">
             <li className="nav-item">
               <NavLink
-                to="/movie"
+                to="media-type/movie"
                 className={({ isActive }) =>
                   isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
                 }
@@ -33,7 +33,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/tv"
+                to="media-type/tv"
                 className={({ isActive }) =>
                   isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
                 }
