@@ -137,7 +137,7 @@ ul {
 .detail-media .card {
   text-align: justify;
 }
-.detail-media .card img {
+.detail-media .main-card img {
   height: 40vh;
   width: 100%;
 }

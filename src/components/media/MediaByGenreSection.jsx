@@ -19,7 +19,7 @@ const MediaByGenreSection = ({ mediaType, genreId, name }) => {
         <div className="d-flex justify-content-between my-2 my-md-3">
           <h3 className="text-white">{name}</h3>
           <button className="btn btn-secondary" onClick={goToGenre}>
-            Ir a {name}
+            Go to {name}
           </button>
         </div>
         {media && <SwiperCarousel mediaItems={media} />}

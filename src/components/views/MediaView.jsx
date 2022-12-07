@@ -7,6 +7,7 @@ import { getGenresMedia } from '../../store/slices/genresMedia.slice';
 //Components
 import Hero from '../main/Hero';
 import MediaByGenreSection from '../media/MediaByGenreSection';
+import MediaByQuerySection from '../media/MediaByQuerySection';
 
 const MediaView = () => {
   const dispatch = useDispatch();
@@ -17,21 +18,26 @@ const MediaView = () => {
     dispatch(getGenresMedia(type));
   }, [type]);
 
+  const makeQuerySection = (genre) => {
+    const myQuery = { with_genres: genre.id };
+
+    return (
+      <MediaByQuerySection
+        mediaType={type}
+        query={myQuery}
+        subtitle={genre.name}
+        key={genre.name}
+      />
+    );
+  };
+
   return (
     <section className="media-view">
       <div className="container">
         <div className="row">
           <div className="col-12">
             <Hero mediaType={type} />
-            {genresIds &&
-              genresIds.map((genre) => (
-                <MediaByGenreSection
-                  mediaType={type}
-                  genreId={genre.id}
-                  name={genre.name}
-                  key={genre.id}
-                />
-              ))}
+            {genresIds && genresIds.map((genre) => makeQuerySection(genre))}
           </div>
         </div>
       </div>

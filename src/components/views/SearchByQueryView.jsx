@@ -23,10 +23,6 @@ const SearchByQueryView = () => {
     <section className="search-view">
       <div className="container">
         <div className="row">
-          {/* <div className="col-md-2">
-            <InputFilterYear addQuery={addQuery} />
-          </div> */}
-          {/* filtros */}
           <div className="col-md-12">
             {mediaByQuery && <SearchedGroup media={mediaByQuery} />}
           </div>

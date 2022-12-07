@@ -6,7 +6,7 @@ const SimilarMedia = ({ mediaType, mediaId }) => {
   const [similarMedia] = useGetSimiliarMedia(mediaType, mediaId);
   console.log({ similarMedia });
   return (
-    <section className="row similar-media">
+    <article className="row similar-media">
       <h3>Similar media</h3>
       {similarMedia &&
         similarMedia.map((item) => {
@@ -16,7 +16,7 @@ const SimilarMedia = ({ mediaType, mediaId }) => {
             </div>
           );
         })}
-    </section>
+    </article>
   );
 };
 

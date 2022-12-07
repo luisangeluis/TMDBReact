@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 //Custom hooks
 import useGetDetailMedia from '../../hooks/useGetDetailMedia';
 import SimilarMedia from './SimilarMedia';
+import CardSeason from './tv/CardSeason';
+import SeasonsSection from './tv/SeasonsSection';
 
 const DetailMedia = () => {
   const { type, id } = useParams();
@@ -13,7 +15,7 @@ const DetailMedia = () => {
   return (
     <section className="detail-media flex-grow-1">
       <div className="container">
-        <article className="card my-2 my-md-3">
+        <article className="card main-card my-2 my-md-3">
           <div className="row bg-light border border-1 rounded m-2 m-md-1">
             <div className=" col-md-5 d-flex justify-content-center align-items-center">
               <img
@@ -43,6 +45,10 @@ const DetailMedia = () => {
             </div>
           </div>
         </article>
+
+        {detailMedia?.seasons !== undefined && (
+          <SeasonsSection seasons={detailMedia.seasons} />
+        )}
         <SimilarMedia mediaType={type} mediaId={id} />
       </div>
     </section>
