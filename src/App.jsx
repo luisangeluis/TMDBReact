@@ -9,6 +9,7 @@ import SearchByGenreView from './components/views/SearchByGenreView';
 import SearchByQueryView from './components/views/SearchByQueryView';
 import DetailMedia from './components/media/DetailMedia';
 import SeasonView from './components/views/SeasonView';
+import SeasonDetail from './components/media/tv/SeasonDetail';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
           <Route path="media-type/:type" element={<MediaView />} />
           <Route path="media-type/:type/id/:id" element={<DetailMedia />} />
           <Route path="tv/:tvId/season/:seasonId" element={<SeasonView />} />
+          <Route
+            path="tv/:tvId/season/:seasonId/season-detail"
+            element={<SeasonDetail />}
+            // element={<h2>hola</h2>}
+          />
           <Route path="search/:search" element={<SearchView />} />
           <Route
             path="search-genre/:mediaType/:genreId"

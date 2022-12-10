@@ -1,9 +1,17 @@
-import React from 'react';
+//Depedencies
+import { useNavigate, useParams } from 'react-router-dom';
 
 const CardSeason = ({ season }) => {
+  console.log(season);
+  let navigate = useNavigate();
+  const { id } = useParams();
+
+  const goToDetailSeason = () => {
+    navigate(`/tv/${id}/season/${season.id}/season-detail`);
+  };
   return (
     <article className="card justify-content-center border-1 rounded bg-light my-2">
-      <button className="btn p-0">
+      <button className="btn p-0" onClick={goToDetailSeason}>
         <div className="row">
           <div className=" col-md-4">
             <img
@@ -13,13 +21,13 @@ const CardSeason = ({ season }) => {
             />
           </div>
           <div className=" col-md-8">
-            <button className="btn d-flex justify-content-center align-items-center p-0">
-              <div className="card-body p-1 rounded d-flex justify-content-center align-items-start">
-                <div className="card-title m-0 p-1 p-md-2 fw-bolder">
-                  {season?.name}
-                </div>
+            {/* <button className="btn d-flex justify-content-center align-items-center p-0"> */}
+            <div className="card-body p-1 rounded d-flex justify-content-center align-items-start">
+              <div className="card-title m-0 p-1 p-md-2 fw-bolder">
+                {season?.name}
               </div>
-            </button>
+            </div>
+            {/* </button> */}
           </div>
         </div>
       </button>
