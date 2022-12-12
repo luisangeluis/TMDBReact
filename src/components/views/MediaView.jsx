@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import { getGenresMedia } from '../../store/slices/genresMedia.slice';
 //Components
 import Hero from '../main/Hero';
-import MediaByGenreSection from '../media/MediaByGenreSection';
 import MediaByQuerySection from '../media/MediaByQuerySection';
 
 const MediaView = () => {

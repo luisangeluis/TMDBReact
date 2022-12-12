@@ -4,7 +4,6 @@ import CardMedia from './CardMedia';
 
 const SimilarMedia = ({ mediaType, mediaId }) => {
   const [similarMedia] = useGetSimiliarMedia(mediaType, mediaId);
-  console.log({ similarMedia });
   return (
     <article className="row similar-media">
       <h3>Similar media</h3>

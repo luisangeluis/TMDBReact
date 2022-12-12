@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 //Custom hooks
 import useGetDetailMedia from '../../hooks/useGetDetailMedia';
+//Components
 import SimilarMedia from './SimilarMedia';
-import CardSeason from './tv/CardSeason';
 import SeasonsSection from './tv/SeasonsSection';
 
 const DetailMedia = () => {
