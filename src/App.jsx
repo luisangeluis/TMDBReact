@@ -9,6 +9,7 @@ import SearchByQueryView from './components/views/SearchByQueryView';
 import DetailMedia from './components/media/DetailMedia';
 import SeasonView from './components/views/SeasonView';
 import SeasonDetail from './components/media/tv/SeasonDetail';
+import Error404 from './components/shared/Error404';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           />
           <Route path="search/:search" element={<SearchView />} />
           <Route path="search-query" element={<SearchByQueryView />} />
+          <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>
     </div>
