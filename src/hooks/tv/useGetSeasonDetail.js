@@ -15,14 +15,15 @@ const useGetSeasonDetail = (tvId, seasonId) => {
     const query = { language: 'en-US' };
 
     axios
-      // .get(`${baseUrl}/tv/${tvId}/season/${seasonId}?api_key=${key}`, {
-      //   params: query,
-      // })
-      .get(
-        `https://api.themoviedb.org/3/tv/${tvId}/season/${seasonId}?api_key=${key}&language=en-US`
-      )
+      .get(`${baseUrl}/tv/${tvId}/season/${seasonId}?api_key=${key}`, {
+        params: query,
+      })
+      // .get(
+      //   `https://api.themoviedb.org/3/tv/${tvId}/season/${seasonId}?api_key=${key}&language=en-US`
+      // )
       .then((res) => {
         console.log(res);
+        setDetailSeason(res.data);
       })
       .catch((error) => error);
   };

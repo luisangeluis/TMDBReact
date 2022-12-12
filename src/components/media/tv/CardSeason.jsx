@@ -7,7 +7,7 @@ const CardSeason = ({ season }) => {
   const { id } = useParams();
 
   const goToDetailSeason = () => {
-    navigate(`/tv/${id}/season/${season.id}/season-detail`);
+    navigate(`/tv/${id}/season/${season.season_number}/season-detail`);
   };
   return (
     <article className="card justify-content-center border-1 rounded bg-light my-2">
