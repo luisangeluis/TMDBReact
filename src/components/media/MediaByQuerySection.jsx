@@ -1,24 +1,27 @@
 //Depedencies
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 //Hooks
 import useGetMediaByQuerySection from '../../hooks/useGetMediaByQuerySection';
 //Slices
 import { getMediaByQuery } from '../../store/slices/mediaByQuery.slice';
 //Components
-import React from 'react';
+import React, { useEffect } from 'react';
 import SwiperCarousel from './SwiperCarousel';
 
 const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
   const dispatch = useDispatch();
   const [media] = useGetMediaByQuerySection(mediaType, query);
+  const mediaByQuery = useSelector((state) => state.mediaByQuery);
+  console.log(mediaByQuery);
   let navigate = useNavigate();
   // console.log(media);
+
   const goToGenre = () => {
     dispatch(getMediaByQuery(mediaType, query));
     localStorage.setItem('mediaType', mediaType);
     localStorage.setItem('mediaByQuery', JSON.stringify(query));
-    navigate(`/search-query`);
+    navigate(`/search-query/title/${subtitle}`);
   };
 
   return (

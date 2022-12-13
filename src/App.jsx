@@ -25,7 +25,10 @@ function App() {
             element={<SeasonDetail />}
           />
           <Route path="search/:search" element={<SearchView />} />
-          <Route path="search-query" element={<SearchByQueryView />} />
+          <Route
+            path="search-query/title/:title"
+            element={<SearchByQueryView />}
+          />
           <Route path="/*" element={<Error404 />} />
         </Route>
       </Routes>

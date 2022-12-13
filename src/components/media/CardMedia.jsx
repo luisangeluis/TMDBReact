@@ -13,7 +13,7 @@ const CardMedia = ({ item }) => {
   };
 
   return (
-    <article className="card justify-content-center border-1 rounded bg-light my-2">
+    <article className="card card-media justify-content-center border-1 rounded bg-light my-2">
       <button
         className="btn d-flex justify-content-center align-items-center p-0 "
         onClick={goToDetail}
