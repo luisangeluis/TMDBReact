@@ -1,21 +1,11 @@
 //Dependencies
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-//Slices
-import { getMediaByName } from '../../store/slices/mediaByQuery.slice';
 
 const MainInputSearch = () => {
-  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
-
-  const search = (data) => {
-    // console.log(data);
-    // navigate(`/search/${data.search}`);
-    dispatch(getMediaByName(data.search));
-    navigate(`/search-query`);
-  };
+  const search = (data) => navigate(`/search/${data.search}`);
 
   return (
     <form onSubmit={handleSubmit(search)} className="row g-3">

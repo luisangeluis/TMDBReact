@@ -67,6 +67,7 @@ ul {
 
 .swiper .swiper-slide {
   width: 100%;
+  margin: 0;
 }
 .swiper .card {
   height: 400px;
@@ -170,6 +171,38 @@ ul {
 }
 /*******************************/
 /* END Search view */
+/*******************************/
+/*******************************/
+/*Error 4004 */
+/*******************************/
+.error-404 .card {
+  overflow: hidden;
+}
+/*******************************/
+/*End Error 404 */
+/*******************************/
+/*******************************/
+/*Animations */
+/*******************************/
+.from-right-animation {
+  animation: fromRightAnimation 2s;
+  transition: translateX ease-in-out;
+}
+@keyframes fromRightAnimation {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/*******************************/
+/* END Animations */
+/*******************************/
+/*******************************/
+/* Media querys */
 /*******************************/
 @media (min-width: 576px) {
 }

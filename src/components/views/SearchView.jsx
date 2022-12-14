@@ -1,31 +1,25 @@
 //Dependencies
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+//Slices
+import { getSearchedMedia } from '../../store/slices/searchedMedia.slice';
+//Component
 import SearchedGroup from '../media/SearchedGroup';
 
 const SearchView = () => {
   const { search } = useParams();
-  const [media, setMedia] = useState();
-
+  const dispatch = useDispatch();
+  const mediaByName = useSelector((state) => state.searchedMedia);
   useEffect(() => {
-    getSearch();
-  }, [search]);
-
-  console.log(media);
-  const getSearch = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/search/multi?api_key=b0dd442bf37e49eecbb517b186e6f5ee&language=en-US&page=1&include_adult=false&query=${search}`
-      )
-      .then((res) => setMedia(res.data.results))
-      .catch((error) => console.log(error.message));
-  };
+    dispatch(getSearchedMedia(search));
+  }, []);
 
   return (
     <section className="search-view">
       <div className="container">
-        <SearchedGroup media={media} />
+        <SearchedGroup media={mediaByName} />
       </div>
     </section>
   );

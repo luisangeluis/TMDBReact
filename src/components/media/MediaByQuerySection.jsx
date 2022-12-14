@@ -12,10 +12,7 @@ import SwiperCarousel from './SwiperCarousel';
 const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
   const dispatch = useDispatch();
   const [media] = useGetMediaByQuerySection(mediaType, query);
-  const mediaByQuery = useSelector((state) => state.mediaByQuery);
-  console.log(mediaByQuery);
   let navigate = useNavigate();
-  // console.log(media);
 
   const goToGenre = () => {
     dispatch(getMediaByQuery(mediaType, query));

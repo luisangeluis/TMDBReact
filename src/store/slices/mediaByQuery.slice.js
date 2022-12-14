@@ -29,16 +29,16 @@ export const getMediaByQuery = (mediaType, query) => (dispatch) => {
     .catch((error) => console.log(error.message));
 };
 
-export const getMediaByName = (search) => (dispatch) => {
-  const key = 'b0dd442bf37e49eecbb517b186e6f5ee';
+// export const getMediaByName = (search) => (dispatch) => {
+//   const key = 'b0dd442bf37e49eecbb517b186e6f5ee';
 
-  return axios
-    .get(
-      `https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&include_adult=false&query=${search}`
-    )
-    .then((res) => {
-      console.log(res.data.results);
-      dispatch(setMediaByQuery(res.data.results));
-    })
-    .catch((error) => console.log(error));
-};
+//   return axios
+//     .get(
+//       `https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&include_adult=false&query=${search}`
+//     )
+//     .then((res) => {
+//       console.log(res.data.results);
+//       dispatch(setMediaByQuery(res.data.results));
+//     })
+//     .catch((error) => console.log(error));
+// };
