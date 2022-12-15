@@ -1,19 +1,27 @@
-//Components
-import { useEffect } from 'react';
+//Depedencies
+import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+//Slices
+import { addMediaByQuery } from '../../store/slices/mediaByQuery.slice';
+//Components
 import CardMedia from './CardMedia';
 
 const SearchedGroup = ({ media }) => {
   const { ref, inView, entry } = useInView({ threshold: 0 });
+  const [count, setCount] = useState(1);
+  const dispatch = useDispatch();
+
+  const mediaType = localStorage.getItem('mediaType');
+  const query = JSON.parse(localStorage.getItem('mediaByQuery'));
 
   useEffect(() => {
-    // const group = document.querySelectorAll('.card');
-    // console.log(group);
-    // if (group) {
-    //   console.log(group[0]);
-    //   console.log(group[group.length - 1].setAttribute('ref', ref));
-    // }
-  }, []);
+    if (inView) {
+      setCount(count + 1);
+      console.log({ count });
+      console.log(dispatch(getMediaByQuery(mediaType, query)));
+    }
+  }, [inView]);
 
   return (
     <div className="row searched-group">
@@ -23,7 +31,7 @@ const SearchedGroup = ({ media }) => {
             <CardMedia item={element} />
           </div>
         ))}
-      <h2 ref={ref}>inview {inView}</h2>
+      <div className="hola" ref={ref}></div>
     </div>
   );
 };

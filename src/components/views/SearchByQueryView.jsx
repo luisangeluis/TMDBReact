@@ -11,13 +11,7 @@ const SearchByQueryView = () => {
   const dispatch = useDispatch();
   const mediaByQuery = useSelector((state) => state.mediaByQuery);
   const { title } = useParams();
-  let pageNum = 1;
 
-  if (mediaByQuery) {
-    // console.log('hola');
-    // console.log(mediaByQuery[0]);
-    //TO DO get all cardMedia elements and select the last
-  }
   useEffect(() => {
     if (!mediaByQuery) {
       const mediaType = localStorage.getItem('mediaType');
@@ -25,6 +19,8 @@ const SearchByQueryView = () => {
       dispatch(getMediaByQuery(mediaType, myQuery));
     }
   }, []);
+
+  console.log(mediaByQuery);
 
   return (
     <section className="search-view">
