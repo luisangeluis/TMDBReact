@@ -23,7 +23,6 @@ export const getMediaByQuery = (mediaType, query) => (dispatch) => {
       params: query,
     })
     .then((res) => {
-      console.log(res);
       dispatch(setMediaByQuery(res.data.results));
     })
     .catch((error) => console.log(error.message));

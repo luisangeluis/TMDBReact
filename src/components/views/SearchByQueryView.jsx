@@ -13,10 +13,9 @@ const SearchByQueryView = () => {
   const { title } = useParams();
   let pageNum = 1;
 
-  // console.log(mediaByQuery);
   if (mediaByQuery) {
-    console.log('hola');
-    console.log(mediaByQuery[0]);
+    // console.log('hola');
+    // console.log(mediaByQuery[0]);
     //TO DO get all cardMedia elements and select the last
   }
   useEffect(() => {
