@@ -2,18 +2,17 @@
 import axios from 'axios';
 import { createSlice } from '@reduxjs/toolkit';
 
+// const initialState = { value: [] };
+
 export const mediaByQuerySlice = createSlice({
   name: 'queryMedia',
-  initialState: null,
+  initialState: [],
   reducers: {
-    // setMediaByQuery: (state, action) => {
-    //   return action.payload;
-    // },
     setMediaByQuery: (state, action) => {
-      console.log(action);
-      const elements = action.payload;
-      return [...state, elements];
+      const newValue = action.payload;
+      return [...state, ...newValue];
     },
+
     addMediaByQuery: (state, action) => {
       console.log(state.value);
       return state;

@@ -20,7 +20,7 @@ const SearchByQueryView = () => {
     }
   }, []);
 
-  console.log(mediaByQuery);
+  // console.log(mediaByQuery);
 
   return (
     <section className="search-view">

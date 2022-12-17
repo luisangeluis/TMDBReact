@@ -8,7 +8,6 @@ import CardEpisode from './CardEpisode';
 const SeasonDetail = () => {
   const { tvId, seasonId } = useParams();
   const [seasonDetail] = useGetSeasonDetail(tvId, seasonId);
-  console.log(seasonDetail);
   return (
     <section className="season-detail flex-grow-1">
       <div className="container">
