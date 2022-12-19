@@ -9,8 +9,9 @@ export const mediaByQuerySlice = createSlice({
   initialState: [],
   reducers: {
     setMediaByQuery: (state, action) => {
-      const newValue = action.payload;
-      return [...state, ...newValue];
+      // const newValue = action.payload;
+      // return [...state, ...newValue];
+      return action.payload;
     },
 
     addMediaByQuery: (state, action) => {

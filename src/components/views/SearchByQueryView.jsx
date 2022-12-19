@@ -13,14 +13,15 @@ const SearchByQueryView = () => {
   const { title } = useParams();
 
   useEffect(() => {
-    if (!mediaByQuery) {
+    if (mediaByQuery.length == 0) {
       const mediaType = localStorage.getItem('mediaType');
+      console.log(mediaType);
       const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
       dispatch(getMediaByQuery(mediaType, myQuery));
     }
   }, []);
 
-  // console.log(mediaByQuery);
+  console.log(mediaByQuery);
 
   return (
     <section className="search-view">
