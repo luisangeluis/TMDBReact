@@ -1,5 +1,5 @@
 //Depedencies
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 //Slices
@@ -11,17 +11,15 @@ const SearchByQueryView = () => {
   const dispatch = useDispatch();
   const mediaByQuery = useSelector((state) => state.mediaByQuery);
   const { title } = useParams();
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (mediaByQuery.length == 0) {
       const mediaType = localStorage.getItem('mediaType');
-      console.log(mediaType);
       const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
       dispatch(getMediaByQuery(mediaType, myQuery));
     }
   }, []);
-
-  console.log(mediaByQuery);
 
   return (
     <section className="search-view">

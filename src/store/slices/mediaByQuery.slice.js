@@ -34,5 +34,5 @@ export const getMediaByQuery = (mediaType, query) => (dispatch) => {
     .then((res) => {
       dispatch(setMediaByQuery(res.data.results));
     })
-    .catch((error) => console.log(error.message));
+    .catch((error) => console.log(error));
 };
