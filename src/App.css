@@ -157,6 +157,10 @@ ul {
 /*******************************/
 /* Search view */
 /*******************************/
+/* .search-view {
+  flex-grow: 2;
+  min-height: 200%;
+} */
 .search-view .card {
   height: 50vh;
 }

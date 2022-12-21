@@ -12,14 +12,41 @@ const SearchByQueryView = () => {
   const mediaByQuery = useSelector((state) => state.mediaByQuery);
   const { title } = useParams();
   const [page, setPage] = useState(1);
+  const mediaType = localStorage.getItem('mediaType');
+  const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
+
+  addEventListener('scroll', handleRequesAgain);
 
   useEffect(() => {
-    if (mediaByQuery.length == 0) {
-      const mediaType = localStorage.getItem('mediaType');
-      const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
+    //TODO SE DUPLICA LA PETICION
+    if (!mediaByQuery.length) {
       dispatch(getMediaByQuery(mediaType, myQuery));
+      console.log('no media');
     }
   }, []);
+  function handleRequesAgain() {
+    const isFinal = isFinalPage();
+
+    if (isFinal) {
+      let newPage = mediaByQuery.length / 20;
+      newPage++;
+      myQuery.page = newPage;
+      dispatch(getMediaByQuery(mediaType, myQuery));
+    }
+  }
+
+  function isFinalPage() {
+    let isFinal = false;
+    let pageHeight = document.documentElement.scrollHeight;
+    let windowHeight = innerHeight;
+    let scrollPosition = scrollY;
+
+    if (scrollPosition >= pageHeight - windowHeight) {
+      isFinal = true;
+    }
+
+    return isFinal;
+  }
 
   return (
     <section className="search-view">
@@ -27,7 +54,7 @@ const SearchByQueryView = () => {
         <h3>{title}</h3>
         <div className="row">
           <div className="col-md-12">
-            {mediaByQuery && <SearchedGroup media={mediaByQuery} />}
+            {<SearchedGroup media={mediaByQuery} />}
           </div>
         </div>
       </div>
