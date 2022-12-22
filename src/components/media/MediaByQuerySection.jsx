@@ -15,7 +15,7 @@ const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
   let navigate = useNavigate();
 
   const goToGenre = () => {
-    dispatch(getMediaByQuery(mediaType, query));
+    // dispatch(getMediaByQuery(mediaType, query));
     localStorage.setItem('mediaType', mediaType);
     localStorage.setItem('mediaByQuery', JSON.stringify(query));
     navigate(`/search-query/title/${subtitle}`);

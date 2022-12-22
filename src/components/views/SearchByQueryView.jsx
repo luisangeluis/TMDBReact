@@ -7,46 +7,71 @@ import { getMediaByQuery } from '../../store/slices/mediaByQuery.slice';
 //Components
 import SearchedGroup from '../media/SearchedGroup';
 
+//Footer
+
 const SearchByQueryView = () => {
+  let footer = document.querySelector('.search-view');
+  console.log(footer);
   const dispatch = useDispatch();
   const mediaByQuery = useSelector((state) => state.mediaByQuery);
   const { title } = useParams();
-  const [page, setPage] = useState(1);
   const mediaType = localStorage.getItem('mediaType');
   const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
+  let currentPage = 0;
+  //Observer
+  //TODO OBSERVAR EL FOOTER
+  //PARA VER CUANDO HACER LA PETICION Y NO SE DISPARE TANTAS VECES COMO CON SCROLL
+  const observerOptions = { threshold: 0 };
+  let observer = new IntersectionObserver(callback, observerOptions);
+  observer.observe(footer);
 
-  addEventListener('scroll', handleRequesAgain);
+  function callback() {
+    console.log('el callback');
+  }
+
+  // addEventListener('scroll', handleRequesAgain);
 
   useEffect(() => {
-    //TODO SE DUPLICA LA PETICION
     if (!mediaByQuery.length) {
+      console.log('sin media query');
+
       dispatch(getMediaByQuery(mediaType, myQuery));
-      console.log('no media');
     }
+    localStorage.setItem('currentPage', 1);
   }, []);
-  function handleRequesAgain() {
-    const isFinal = isFinalPage();
 
-    if (isFinal) {
-      let newPage = mediaByQuery.length / 20;
-      newPage++;
-      myQuery.page = newPage;
-      dispatch(getMediaByQuery(mediaType, myQuery));
+  useEffect(() => {
+    if (mediaByQuery.length) {
+      currentPage = mediaByQuery.length / 20;
+      localStorage.getItem('currentPage', currentPage);
     }
-  }
+  }, [mediaByQuery]);
 
-  function isFinalPage() {
-    let isFinal = false;
-    let pageHeight = document.documentElement.scrollHeight;
-    let windowHeight = innerHeight;
-    let scrollPosition = scrollY;
+  // function handleRequesAgain() {
+  //   const isFinal = isFinalPage();
 
-    if (scrollPosition >= pageHeight - windowHeight) {
-      isFinal = true;
-    }
+  //   if (isFinal) {
+  //     let newPage = Number(localStorage.getItem('currentPage')) + 1;
 
-    return isFinal;
-  }
+  //     console.log('es el final');
+  //     console.log({ newPage });
+  //     // myQuery.page = newPage;
+  //     // dispatch(getMediaByQuery(mediaType, myQuery));
+  //   }
+  // }
+
+  // function isFinalPage() {
+  //   let isFinal = false;
+  //   let pageHeight = document.documentElement.scrollHeight;
+  //   let windowHeight = innerHeight;
+  //   let scrollPosition = scrollY;
+
+  //   if (scrollPosition >= pageHeight - windowHeight) {
+  //     isFinal = true;
+  //   }
+
+  //   return isFinal;
+  // }
 
   return (
     <section className="search-view">
@@ -54,7 +79,7 @@ const SearchByQueryView = () => {
         <h3>{title}</h3>
         <div className="row">
           <div className="col-md-12">
-            {<SearchedGroup media={mediaByQuery} />}
+            {mediaByQuery && <SearchedGroup media={mediaByQuery} />}
           </div>
         </div>
       </div>

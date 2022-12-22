@@ -1,7 +1,17 @@
+//Depedencies
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+//Slices
+import { getMediaByQuery } from '../../store/slices/mediaByQuery.slice';
 //Components
 import CardMedia from './CardMedia';
 
 const SearchedGroup = ({ media }) => {
+  const dispatch = useDispatch();
+  const mediaType = localStorage.getItem('mediaType');
+  const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
+
   const renderCards = () => {
     const cards = media.map((element, i) => {
       if (i == media.length - 1) {
