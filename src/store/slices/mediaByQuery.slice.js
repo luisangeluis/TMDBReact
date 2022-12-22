@@ -16,7 +16,8 @@ export const mediaByQuerySlice = createSlice({
 
     addMediaByQuery: (state, action) => {
       console.log(state.value);
-      return state;
+      const newValue = action.payload;
+      return [...state, ...newValue];
     },
   },
 });
@@ -33,6 +34,19 @@ export const getMediaByQuery = (mediaType, query) => (dispatch) => {
     })
     .then((res) => {
       dispatch(setMediaByQuery(res.data.results));
+    })
+    .catch((error) => console.log(error));
+};
+
+export const addMoreMedia = (mediaType, query) => (dispatch) => {
+  const key = 'b0dd442bf37e49eecbb517b186e6f5ee';
+
+  return axios
+    .get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=${key}`, {
+      params: query,
+    })
+    .then((res) => {
+      dispatch(addMediaByQuery(res.data.results));
     })
     .catch((error) => console.log(error));
 };
