@@ -15,7 +15,6 @@ export const mediaByQuerySlice = createSlice({
     },
 
     addMediaByQuery: (state, action) => {
-      console.log(state.value);
       const newValue = action.payload;
       return [...state, ...newValue];
     },
