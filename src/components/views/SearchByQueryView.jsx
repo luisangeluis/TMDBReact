@@ -34,8 +34,7 @@ const SearchByQueryView = () => {
 
   if (inView) {
     console.log('VISTO!');
-    const currentPage = mediaByQuery.length / 20;
-    const nextPage = mediaByQuery.length / 20 + 1;
+    const nextPage = localStorage.getItem('nextPage');
     myQuery.page = nextPage;
     dispatch(addMoreMedia(mediaType, myQuery));
   }
