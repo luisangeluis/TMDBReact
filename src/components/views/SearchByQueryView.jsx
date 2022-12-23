@@ -26,21 +26,21 @@ const SearchByQueryView = () => {
     if (mediaByQuery.length) {
       nextPage = mediaByQuery.length / 20 + 1;
     } else {
-      nextPage = 1;
+      nextPage = 2;
     }
     localStorage.setItem('nextPage', nextPage);
     myQuery.page = nextPage;
     dispatch(getMediaByQuery(mediaType, myQuery));
   }, []);
 
-  // useEffect(() => {
-  //   if (mediaByQuery.length) {
-  //     const currentPage = mediaByQuery.length / 20;
-  //     const nextPage = mediaByQuery.length / 20 + 1;
-  //     localStorage.setItem('currentPage', currentPage);
-  //     localStorage.setItem('nextPage', nextPage);
-  //   }
-  // }, [mediaByQuery]);
+  useEffect(() => {
+    if (mediaByQuery.length) {
+      const currentPage = mediaByQuery.length / 20;
+      const nextPage = mediaByQuery.length / 20 + 1;
+      localStorage.setItem('currentPage', currentPage);
+      localStorage.setItem('nextPage', nextPage);
+    }
+  }, [mediaByQuery]);
 
   if (inView) {
     console.log('VISTO!');
