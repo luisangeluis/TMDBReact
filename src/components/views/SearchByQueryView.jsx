@@ -20,6 +20,8 @@ const SearchByQueryView = () => {
   const { ref, inView, entry } = useInView({ threshold: 0 });
   localStorage.setItem('currentPage', 1);
   useEffect(() => {
+    const nextPage = localStorage.getItem('nextPage');
+    myQuery.page = nextPage;
     dispatch(getMediaByQuery(mediaType, myQuery));
   }, []);
 
