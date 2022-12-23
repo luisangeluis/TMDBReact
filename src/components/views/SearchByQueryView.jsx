@@ -19,19 +19,17 @@ const SearchByQueryView = () => {
   const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
   const { ref, inView, entry } = useInView({ threshold: 0 });
 
+  useEffect(() => {
+    dispatch(getMediaByQuery(mediaType, myQuery));
+  }, []);
+
   if (inView) {
     console.log('VISTO!');
     const currentPage = mediaByQuery.length / 20;
     const nextPage = mediaByQuery.length / 20 + 1;
     myQuery.page = nextPage;
-    addMedia();
     dispatch(addMoreMedia(mediaType, myQuery));
   }
-
-  useEffect(() => {
-    getMedia();
-    dispatch(getMediaByQuery(mediaType, myQuery));
-  }, []);
 
   return (
     <>
