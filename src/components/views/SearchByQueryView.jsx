@@ -25,18 +25,13 @@ const SearchByQueryView = () => {
     const nextPage = mediaByQuery.length / 20 + 1;
     myQuery.page = nextPage;
     addMedia();
+    dispatch(addMoreMedia(mediaType, myQuery));
   }
 
   useEffect(() => {
     getMedia();
-  }, []);
-
-  const getMedia = () => {
     dispatch(getMediaByQuery(mediaType, myQuery));
-  };
-  function addMedia() {
-    dispatch(addMoreMedia(mediaType, myQuery));
-  }
+  }, []);
 
   return (
     <>
