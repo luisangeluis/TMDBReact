@@ -158,7 +158,7 @@ ul {
 /* Search view */
 /*******************************/
 .search-view {
-  min-height: 100vh;
+  min-height: 120vh;
 }
 .search-view .card {
   height: 50vh;
