@@ -25,7 +25,8 @@ const SearchByQueryView = () => {
       const nextPage = mediaByQuery.length / 20 + 1;
       localStorage.setItem('currentPage', currentPage);
       localStorage.setItem('nextPage', nextPage);
-      myQuery.page = nextPage;
+      myQuery.page = Number(localStorage.getItem('nextPage'));
+      dispatch(addMoreMedia(mediaType, myQuery));
     } else {
       dispatch(getMediaByQuery(mediaType, myQuery));
     }
@@ -33,15 +34,13 @@ const SearchByQueryView = () => {
 
   if (inView) {
     console.log('VISTO!');
-    // const nextPage = localStorage.getItem('nextPage');
-    // myQuery.page = nextPage;
-    // dispatch(addMoreMedia(mediaType, myQuery));
+
     if (mediaByQuery.length) {
       const currentPage = mediaByQuery.length / 20;
       const nextPage = mediaByQuery.length / 20 + 1;
       localStorage.setItem('currentPage', currentPage);
       localStorage.setItem('nextPage', nextPage);
-      myQuery.page = nextPage;
+      myQuery.page = Number(localStorage.getItem('nextPage'));
       dispatch(addMoreMedia(mediaType, myQuery));
     } else {
       dispatch(getMediaByQuery(mediaType, myQuery));
