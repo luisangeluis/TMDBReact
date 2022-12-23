@@ -19,34 +19,33 @@ const SearchByQueryView = () => {
   const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
   const { ref, inView, entry } = useInView({ threshold: 0 });
 
-  // localStorage.setItem('currentPage', 1);
-
-  useEffect(() => {
-    let nextPage = 0;
-    if (mediaByQuery.length) {
-      nextPage = mediaByQuery.length / 20 + 1;
-    } else {
-      nextPage = 2;
-    }
-    localStorage.setItem('nextPage', nextPage);
-    myQuery.page = nextPage;
-    dispatch(getMediaByQuery(mediaType, myQuery));
-  }, []);
-
   useEffect(() => {
     if (mediaByQuery.length) {
       const currentPage = mediaByQuery.length / 20;
       const nextPage = mediaByQuery.length / 20 + 1;
       localStorage.setItem('currentPage', currentPage);
       localStorage.setItem('nextPage', nextPage);
+      myQuery.page = nextPage;
+    } else {
+      dispatch(getMediaByQuery(mediaType, myQuery));
     }
-  }, [mediaByQuery]);
+  }, []);
 
   if (inView) {
     console.log('VISTO!');
-    const nextPage = localStorage.getItem('nextPage');
-    myQuery.page = nextPage;
-    dispatch(addMoreMedia(mediaType, myQuery));
+    // const nextPage = localStorage.getItem('nextPage');
+    // myQuery.page = nextPage;
+    // dispatch(addMoreMedia(mediaType, myQuery));
+    if (mediaByQuery.length) {
+      const currentPage = mediaByQuery.length / 20;
+      const nextPage = mediaByQuery.length / 20 + 1;
+      localStorage.setItem('currentPage', currentPage);
+      localStorage.setItem('nextPage', nextPage);
+      myQuery.page = nextPage;
+      dispatch(addMoreMedia(mediaType, myQuery));
+    } else {
+      dispatch(getMediaByQuery(mediaType, myQuery));
+    }
   }
 
   return (
