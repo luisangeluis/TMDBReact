@@ -18,10 +18,19 @@ const SearchByQueryView = () => {
   const mediaType = localStorage.getItem('mediaType');
   const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
   const { ref, inView, entry } = useInView({ threshold: 0 });
-
+  localStorage.setItem('currentPage', 1);
   useEffect(() => {
     dispatch(getMediaByQuery(mediaType, myQuery));
   }, []);
+
+  useEffect(() => {
+    if (mediaByQuery.length) {
+      const currentPage = mediaByQuery.length / 20;
+      const nextPage = mediaByQuery.length / 20 + 1;
+      localStorage.setItem('currentPage', currentPage);
+      localStorage.setItem('nextPage', nextPage);
+    }
+  }, [mediaByQuery]);
 
   if (inView) {
     console.log('VISTO!');
