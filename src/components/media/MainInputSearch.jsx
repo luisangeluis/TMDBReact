@@ -5,7 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const MainInputSearch = () => {
   const { register, handleSubmit } = useForm();
   let navigate = useNavigate();
-  const search = (data) => navigate(`/search/${data.search}`);
+  const search = (data) => {
+    localStorage.clear();
+    navigate(`/search/${data.search}`);
+  };
 
   return (
     <form onSubmit={handleSubmit(search)} className="row g-3">

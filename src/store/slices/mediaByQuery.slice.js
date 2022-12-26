@@ -45,6 +45,7 @@ export const addMoreMedia = (mediaType, query) => (dispatch) => {
       params: query,
     })
     .then((res) => {
+      console.log(res);
       dispatch(addMediaByQuery(res.data.results));
     })
     .catch((error) => console.log(error));

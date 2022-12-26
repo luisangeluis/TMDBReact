@@ -16,13 +16,13 @@ const SearchedGroup = ({ media }) => {
     const cards = media?.map((element, i) => {
       if (i == media.length - 1) {
         return (
-          <div className="col-md-4 col-lg-3 opcion-a" key={element.id}>
+          <div className="col-md-4 col-lg-3 opcion-a" key={i}>
             <CardMedia item={element} />
           </div>
         );
       } else {
         return (
-          <div className="col-md-4 col-lg-3 opcion-b" key={element.id}>
+          <div className="col-md-4 col-lg-3 opcion-b" key={i}>
             <CardMedia item={element} />
           </div>
         );

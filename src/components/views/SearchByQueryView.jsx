@@ -23,8 +23,10 @@ const SearchByQueryView = () => {
     if (mediaByQuery.length) {
       const currentPage = mediaByQuery.length / 20;
       const nextPage = mediaByQuery.length / 20 + 1;
+
       localStorage.setItem('currentPage', currentPage);
       localStorage.setItem('nextPage', nextPage);
+
       myQuery.page = Number(localStorage.getItem('nextPage'));
       dispatch(addMoreMedia(mediaType, myQuery));
     } else {
@@ -34,18 +36,15 @@ const SearchByQueryView = () => {
 
   if (inView) {
     console.log('VISTO!');
-
-    // if (mediaByQuery.length) {
     const currentPage = mediaByQuery.length / 20;
     const nextPage = mediaByQuery.length / 20 + 1;
+
     localStorage.setItem('currentPage', currentPage);
     localStorage.setItem('nextPage', nextPage);
+
     myQuery.page = Number(localStorage.getItem('nextPage'));
+
     dispatch(addMoreMedia(mediaType, myQuery));
-    // }
-    // else {
-    //   dispatch(getMediaByQuery(mediaType, myQuery));
-    // }
   }
 
   return (
