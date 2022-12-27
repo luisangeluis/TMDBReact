@@ -1,6 +1,5 @@
 //Dependencies
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -17,7 +16,6 @@ const SearchView = () => {
   const dispatch = useDispatch();
   const { ref, inView, entry } = useInView({ threshold: 0 });
   const mediaByName = useSelector((state) => state.searchedMedia);
-
   const query = {
     query: search,
     language: 'en-US',
@@ -29,9 +27,9 @@ const SearchView = () => {
     dispatch(getSearchedMedia(query));
   }, []);
 
-  if (inView) {
-    if (mediaByName) {
-      const nextPage = mediaByName.length / 20 + 1;
+  if (inView && mediaByName) {
+    const nextPage = mediaByName.length / 20 + 1;
+    if (nextPage <= Number(localStorage.getItem('totalPagesSearch'))) {
       query.page = nextPage;
       console.log(nextPage);
       dispatch(addMedia(query));

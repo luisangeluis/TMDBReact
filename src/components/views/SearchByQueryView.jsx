@@ -21,10 +21,8 @@ const SearchByQueryView = () => {
 
   useEffect(() => {
     if (mediaByQuery.length) {
-      const currentPage = mediaByQuery.length / 20;
       const nextPage = mediaByQuery.length / 20 + 1;
 
-      localStorage.setItem('currentPage', currentPage);
       localStorage.setItem('nextPage', nextPage);
 
       myQuery.page = Number(localStorage.getItem('nextPage'));
@@ -35,16 +33,16 @@ const SearchByQueryView = () => {
   }, []);
 
   if (inView) {
-    console.log('VISTO!');
-    const currentPage = mediaByQuery.length / 20;
+    // console.log('VISTO!');
     const nextPage = mediaByQuery.length / 20 + 1;
 
-    localStorage.setItem('currentPage', currentPage);
-    localStorage.setItem('nextPage', nextPage);
+    if (nextPage <= localStorage.getItem('totalPageSearchQuery')) {
+      localStorage.setItem('nextPage', nextPage);
 
-    myQuery.page = Number(localStorage.getItem('nextPage'));
+      myQuery.page = Number(localStorage.getItem('nextPage'));
 
-    dispatch(addMoreMedia(mediaType, myQuery));
+      dispatch(addMoreMedia(mediaType, myQuery));
+    }
   }
 
   return (
