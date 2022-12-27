@@ -151,6 +151,8 @@ ul {
 /*****************************Footer***************************************/
 .footer .container {
   min-width: 100%;
+  background-color: white;
+  min-height: 5rem;
 }
 
 /*************************End Footer***************************************/
@@ -160,12 +162,27 @@ ul {
 }
 /***********************End 404 error***************************************/
 /*****************************LOADER***************************************/
-.loader .container {
+
+.loader {
   min-height: 100vh;
   width: 100%;
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
   z-index: 2;
-  background-color: red;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2f3e4690;
+}
+.loader .container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #2f3e46; */
 }
 /*************************End LOADER***************************************/
 /*************************Animations***************************************/

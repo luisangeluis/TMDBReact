@@ -1,19 +1,22 @@
 //Dependencies
 import moment from 'moment';
+import { useSelector } from 'react-redux';
 //Custom hooks
 import useGetBestMoviesOfYeAR from '../../hooks/useGetBestMoviesOfYear';
-//Components
-import Hero from './Hero';
-import MediaByQuerySection from '../media/MediaByQuerySection';
 //Utils
 import {
   getDateLastMonth,
   getCurrentDate,
   getCurrentYear,
 } from '../../utils/getFechas';
+//Components
+import Hero from './Hero';
+import MediaByQuerySection from '../media/MediaByQuerySection';
+import Loader from '../shared/Loader';
 
 const Home = () => {
   const [getBestMoviesOfYear] = useGetBestMoviesOfYeAR(moment().format('YYYY'));
+  const isLoader = useSelector((state) => state.loader);
   const arrayOfSections = [
     {
       mediaType: 'movie',
@@ -52,6 +55,8 @@ const Home = () => {
 
   return (
     <section className="home flex-grow-1">
+      {isLoader && <Loader />}
+
       <div className="container">
         <div className="row">
           <div className="col-12 ">

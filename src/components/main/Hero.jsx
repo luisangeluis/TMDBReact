@@ -1,4 +1,5 @@
 //Dependencies
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import useGetPopularMedia from '../../hooks/useGetPopularMedia';
 //Components
