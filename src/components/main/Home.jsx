@@ -13,25 +13,42 @@ import {
 } from '../../utils/getFechas';
 
 const Home = () => {
-  const popularMedia = {
-    sort_by: 'popularity.desc',
-  };
-  const premieresMedia = {
-    'primary_release_date.gte': getDateLastMonth(),
-    'primary_release_date.lte': getCurrentDate(),
-  };
-  const popularKidsMedia = {
-    certification_country: 'US',
-    'certification.lte': 'G',
-    sort_by: 'popularity.desc',
-    include_adult: false,
-  };
-  const bestMediaOfYear = {
-    primary_release_year: getCurrentYear(),
-    sort_by: 'vote_average.desc',
-  };
-
   const [getBestMoviesOfYear] = useGetBestMoviesOfYeAR(moment().format('YYYY'));
+  const arrayOfSections = [
+    {
+      mediaType: 'movie',
+      name: 'Popular movies',
+      query: {
+        sort_by: 'popularity.desc',
+      },
+    },
+    {
+      mediaType: 'movie',
+      name: 'Premieres movies',
+      query: {
+        'primary_release_date.gte': getDateLastMonth(),
+        'primary_release_date.lte': getCurrentDate(),
+      },
+    },
+    {
+      mediaType: 'movie',
+      name: 'Popular movies kids',
+      query: {
+        certification_country: 'US',
+        'certification.lte': 'G',
+        sort_by: 'popularity.desc',
+        include_adult: false,
+      },
+    },
+    {
+      mediaType: 'movie',
+      name: 'Best movies of year',
+      query: {
+        primary_release_year: getCurrentYear(),
+        sort_by: 'vote_average.desc',
+      },
+    },
+  ];
 
   return (
     <section className="home flex-grow-1">
@@ -41,26 +58,16 @@ const Home = () => {
             <Hero movies={getBestMoviesOfYear} />
           </div>
         </div>
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={popularMedia}
-          subtitle={'Popular movies'}
-        />
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={premieresMedia}
-          subtitle={'Premieres movies'}
-        />
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={popularKidsMedia}
-          subtitle={'Popular movies kids'}
-        />
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={bestMediaOfYear}
-          subtitle={'Best movies of year'}
-        />
+        {arrayOfSections.map((section, i) => {
+          return (
+            <MediaByQuerySection
+              mediaType={section.mediaType}
+              query={section.query}
+              subtitle={section.name}
+              key={i}
+            />
+          );
+        })}
       </div>
     </section>
   );
