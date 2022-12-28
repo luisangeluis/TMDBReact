@@ -7,11 +7,13 @@ import { getGenresMedia } from '../../store/slices/genresMedia.slice';
 //Components
 import Hero from '../main/Hero';
 import MediaByQuerySection from '../media/MediaByQuerySection';
+import Loader from '../shared/Loader';
 
 const MediaView = () => {
+  const { type } = useParams();
   const dispatch = useDispatch();
   const genresIds = useSelector((state) => state.genresMedia);
-  const { type } = useParams();
+  const isLoading = useSelector((state) => state.loader);
 
   useEffect(() => {
     dispatch(getGenresMedia(type));
@@ -32,10 +34,11 @@ const MediaView = () => {
 
   return (
     <section className="media-view">
+      {isLoading && <Loader />}
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <Hero mediaType={type} />
+            <Hero mediaType={type} querys={{ language: 'en-US', page: 1 }} />
             {genresIds && genresIds.map((genre) => makeQuerySection(genre))}
           </div>
         </div>
