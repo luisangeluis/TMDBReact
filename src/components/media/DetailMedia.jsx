@@ -1,19 +1,31 @@
 //Dependencies
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+//Slices
+import { isLoading } from '../../store/slices/loader.slice';
 //Custom hooks
 import useGetDetailMedia from '../../hooks/useGetDetailMedia';
+import Loader from '../shared/Loader';
 //Components
 import SimilarMedia from './SimilarMedia';
 import SeasonsSection from './tv/SeasonsSection';
 
 const DetailMedia = () => {
   const { type, id } = useParams();
+  const dispatch = useDispatch();
   const [detailMedia] = useGetDetailMedia(type, id);
+  const isLoad = useSelector((state) => state.loader);
+
+  useEffect(() => {
+    if (detailMedia) dispatch(isLoading(false));
+    else dispatch(isLoading(true));
+  }, [detailMedia]);
 
   console.log(detailMedia);
   return (
     <section className="detail-media flex-grow-1">
+      {isLoad && <Loader />}
       <div className="container">
         <article className="card main-card my-2 my-md-3">
           <div className="row bg-light border border-1 rounded m-2 m-md-1">

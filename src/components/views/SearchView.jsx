@@ -8,24 +8,33 @@ import {
   addMedia,
   getSearchedMedia,
 } from '../../store/slices/searchedMedia.slice';
+import { isLoading } from '../../store/slices/loader.slice';
 //Component
 import SearchedGroup from '../media/SearchedGroup';
+import Loader from '../shared/Loader';
 
 const SearchView = () => {
   const { search } = useParams();
-  const dispatch = useDispatch();
   const { ref, inView, entry } = useInView({ threshold: 0 });
-  const mediaByName = useSelector((state) => state.searchedMedia);
   const query = {
     query: search,
     language: 'en-US',
     include_adult: false,
   };
+  const dispatch = useDispatch();
+  const mediaByName = useSelector((state) => state.searchedMedia);
+  const isLoad = useSelector((state) => state.loader);
 
   useEffect(() => {
+    // dispatch(isLoading(true));
     localStorage.setItem('currentPageSearch', 1);
     dispatch(getSearchedMedia(query));
   }, []);
+
+  useEffect(() => {
+    if (mediaByName) dispatch(isLoading(false));
+    else dispatch(isLoading(true));
+  }, [mediaByName]);
 
   if (inView && mediaByName) {
     const nextPage = mediaByName.length / 20 + 1;
@@ -38,6 +47,7 @@ const SearchView = () => {
 
   return (
     <section className="search-view">
+      {isLoad && <Loader />}
       <div className="container">
         <SearchedGroup media={mediaByName} />
       </div>
