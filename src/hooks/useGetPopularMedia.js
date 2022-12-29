@@ -1,15 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { isLoading } from '../store/slices/loader.slice';
+// import { useDispatch } from 'react-redux';
+// import { isLoading } from '../store/slices/loader.slice';
 
 const useGetPopularMedia = (mediaType, query) => {
   const [popularMedia, setPopularMedia] = useState();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!popularMedia) dispatch(isLoading(true));
-  }, []);
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     getPopularMedia();
@@ -24,8 +20,7 @@ const useGetPopularMedia = (mediaType, query) => {
         params: { query },
       })
       .then((res) => setPopularMedia(res.data.results))
-      .catch((error) => console.log(error))
-      .finally(() => dispatch(isLoading(false)));
+      .catch((error) => console.log(error));
   };
 
   return [popularMedia];
