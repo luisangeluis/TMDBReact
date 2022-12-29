@@ -22,32 +22,22 @@ const SearchByQueryView = () => {
   const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
   const { ref, inView, entry } = useInView({ threshold: 0 });
   //TODO revisar que las secciones den las peliculas correctas
+
+  useEffect(() => {
+    dispatch(getMediaByQuery(mediaType, myQuery));
+  }, []);
+
   useEffect(() => {
     if (mediaByQuery.length) dispatch(isLoading(false));
     else dispatch(isLoading(true));
   }, [mediaByQuery]);
-
-  useEffect(() => {
-    if (mediaByQuery.length) {
-      const nextPage = mediaByQuery.length / 20 + 1;
-
-      localStorage.setItem('nextPage', nextPage);
-
-      myQuery.page = Number(localStorage.getItem('nextPage'));
-      dispatch(addMoreMedia(mediaType, myQuery));
-    } else {
-      dispatch(getMediaByQuery(mediaType, myQuery));
-    }
-  }, []);
 
   if (inView) {
     // console.log('VISTO!');
     const nextPage = mediaByQuery.length / 20 + 1;
 
     if (nextPage <= localStorage.getItem('totalPageSearchQuery')) {
-      localStorage.setItem('nextPage', nextPage);
-
-      myQuery.page = Number(localStorage.getItem('nextPage'));
+      myQuery.page = nextPage;
 
       dispatch(addMoreMedia(mediaType, myQuery));
     }

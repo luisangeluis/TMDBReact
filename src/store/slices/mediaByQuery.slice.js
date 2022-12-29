@@ -32,7 +32,7 @@ export const getMediaByQuery = (mediaType, query) => (dispatch) => {
       params: query,
     })
     .then((res) => {
-      console.log(res.data);
+      console.log(res);
       localStorage.setItem('totalPageSearchQuery', res.data.total_pages);
       dispatch(setMediaByQuery(res.data.results));
     })
