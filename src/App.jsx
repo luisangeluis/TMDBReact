@@ -13,7 +13,7 @@ import Error404 from './components/shared/Error404';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
