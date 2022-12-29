@@ -21,7 +21,7 @@ const SearchByQueryView = () => {
   const mediaType = localStorage.getItem('mediaType');
   const myQuery = JSON.parse(localStorage.getItem('mediaByQuery'));
   const { ref, inView, entry } = useInView({ threshold: 0 });
-
+  //TODO revisar que las secciones den las peliculas correctas
   useEffect(() => {
     if (mediaByQuery.length) dispatch(isLoading(false));
     else dispatch(isLoading(true));
