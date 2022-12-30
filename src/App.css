@@ -87,9 +87,11 @@ ul {
   border-width: 0.9vmin 0.9vmin 0 0;
   border-style: solid;
   border-color: white;
+  border-radius: 15%;
   transition: 0.2s ease;
   display: block;
   transform-origin: 100% 0;
+  box-shadow: #2f3e46;
 }
 .swiper-button-prev::after,
 .swiper-button-next::after {
@@ -102,13 +104,15 @@ ul {
   border-width: 0 0.9vmin 0 0;
   border-style: solid;
   border-color: white;
+  border-radius: 15%;
   transform-origin: 100% 0;
   transition: 0.2s ease;
 }
 
 .swiper-button-disabled::after,
 .swiper-button-disabled::before {
-  border-color: gray;
+  border-color: transparent;
+  transition: border-color ease 1s;
 }
 
 /***************************End Carousel***************************************/
@@ -237,7 +241,7 @@ ul {
     height: 360px;
   }
   .swiper .card img {
-    height: 280px;
+    height: 260px;
   }
 }
 @media (min-width: 1200px) {

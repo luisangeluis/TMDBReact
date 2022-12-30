@@ -12,7 +12,7 @@ const SwiperCarousel = ({ mediaItems }) => {
     <section className="row my-2 my-md-3">
       <div className="col-12">
         <Swiper
-          spaceBetween={2}
+          spaceBetween={0}
           slidesPerView={'auto'}
           modules={[Navigation]}
           navigation={true}
