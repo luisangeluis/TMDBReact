@@ -41,6 +41,9 @@ ul {
   min-height: 60vh;
   background-repeat: no-repeat;
 }
+.card-hero {
+  background-color: #6c757d50;
+}
 /******************************End Hero******************************************/
 /*******************************Carousel***************************************/
 .swiper {

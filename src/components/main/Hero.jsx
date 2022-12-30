@@ -22,6 +22,8 @@ const Hero = ({ mediaType, querys }) => {
     if (media) dispatch(isLoading(false));
   }, [media]);
 
+  if (media) console.log(media[0]);
+
   return (
     <section
       className="hero my-2 my-md-2 rounded"
@@ -32,9 +34,24 @@ const Hero = ({ mediaType, querys }) => {
       }}
     >
       {isLoad && <Loader />}
-      <div className="container d-flex justify-content-end align-items-start p-3 p-md-4">
-        <div className="row">
-          <div className="col-12 ">
+      <div className="container p-3 p-md-4 d-flex">
+        <div className="row flex-grow-1">
+          <div className="col-md-6 d-flex justify-content-start align-items-end">
+            <article className="card card-hero text-white fw-bold border border-1 border-secondary-subtle">
+              <div className="card-header">
+                {media && (media[0].title ? media[0].title : media[0].name)}
+              </div>
+              <div className="card-body">
+                <div className="card-text">{media && media[0].overview}</div>
+              </div>
+              <div className="card-footer ">
+                <button className="btn btn-secondary fw-bold border border-1 w-25">
+                  Go
+                </button>
+              </div>
+            </article>
+          </div>
+          <div className="col-md-6 d-flex justify-content-end align-items-start">
             <MainInputSearch />
           </div>
         </div>

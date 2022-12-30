@@ -22,7 +22,7 @@ const MainInputSearch = () => {
         />
       </div>
       <div className="col-auto">
-        <button className="btn btn-secondary">Search</button>
+        <button className="btn btn-secondary border border-1">Search</button>
       </div>
     </form>
   );
