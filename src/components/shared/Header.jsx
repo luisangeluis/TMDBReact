@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-custom-green">
-      <div className="container-fluid p-3 p-lg-1">
-        <a className="navbar-brand" href="#">
-          TMDB Api
+      <div className="container-fluid px-3 px-md-4">
+        <a className="navbar-brand fw-bolder" href="#">
+          TMDB API
         </a>
         <button
           className="navbar-toggler"
@@ -25,20 +25,20 @@ const Header = () => {
               <NavLink
                 to="media-type/movie"
                 className={({ isActive }) =>
-                  isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
+                  isActive ? 'nav-link active' : 'nav-link'
                 }
               >
-                Movies
+                MOVIES
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 to="media-type/tv"
                 className={({ isActive }) =>
-                  isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
+                  isActive ? 'nav-link active' : 'nav-link'
                 }
               >
-                Tv shows
+                TV SHOWS
               </NavLink>
             </li>
           </ul>

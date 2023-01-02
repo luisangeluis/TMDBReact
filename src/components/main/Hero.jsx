@@ -37,14 +37,14 @@ const Hero = ({ mediaType, querys }) => {
       <div className="container p-3 p-md-4 d-flex">
         <div className="row flex-grow-1">
           <div className="col-md-6 d-flex justify-content-start align-items-end">
-            <article className="card card-hero text-white fw-bold border border-1 border-secondary-subtle">
+            <article className="card card-hero text-white fw-bold border-0 ">
               <div className="card-header">
                 {media && (media[0].title ? media[0].title : media[0].name)}
               </div>
               <div className="card-body">
                 <div className="card-text">{media && media[0].overview}</div>
               </div>
-              <div className="card-footer ">
+              <div className="card-footer border-0">
                 <button className="btn btn-secondary fw-bold border border-1 w-25">
                   Go
                 </button>

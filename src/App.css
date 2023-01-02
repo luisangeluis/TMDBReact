@@ -26,14 +26,40 @@ ul {
 .bg-custom-green {
   background-color: #2f3e46;
 }
-/***********************************Header***************************************/
-.nav-link.active {
+.btn:hover {
+  transform: scale(1.05);
 }
+/***********************************Header***************************************/
+
 /***************************End Header*******************************************/
 /***********************************Navbar***************************************/
 .navbar {
   min-height: 5rem;
   font-size: 1.4rem;
+}
+.navbar-brand {
+  color: #2c74b3;
+  font-size: 2rem;
+  transition: all ease-in-out 500ms;
+}
+.navbar-brand:hover {
+  color: whitesmoke;
+  transition: all ease-in-out 200ms;
+  transform: scale(1.01);
+}
+.nav-link {
+  font-size: 1.4rem;
+  font-weight: bolder;
+  transition: all ease-in-out 250ms;
+}
+.navbar-nav .nav-link.active {
+  color: whitesmoke;
+  /* transform: scale(1.05); */
+}
+.nav-link:hover {
+  color: black;
+  transform: scale(1.1);
+  /* background-color: whitesmoke; */
 }
 /**************************End Navbar**********************************************/
 /***********************************Hero***************************************/
@@ -49,6 +75,9 @@ ul {
 .swiper {
   position: relative;
 }
+.swiper .btn {
+  transform: scale(1);
+}
 
 .swiper .swiper-slide {
   width: 100%;
@@ -56,7 +85,13 @@ ul {
 }
 .swiper .card {
   height: 400px;
+  transition: all ease-in-out 250ms;
 }
+
+.swiper .btn {
+  transform: scale(1);
+}
+
 .swiper .card img {
   height: 320px;
 }
@@ -158,8 +193,8 @@ ul {
 /*****************************Footer***************************************/
 .footer .container {
   min-width: 100%;
-  background-color: white;
   min-height: 5rem;
+  color: #950a15;
 }
 
 /*************************End Footer***************************************/
