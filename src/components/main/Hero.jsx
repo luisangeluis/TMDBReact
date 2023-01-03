@@ -36,22 +36,22 @@ const Hero = ({ mediaType, querys }) => {
       {isLoad && <Loader />}
       <div className="container p-3 p-md-4 d-flex">
         <div className="row flex-grow-1">
-          <div className="col-md-6 d-flex justify-content-start align-items-end">
-            <article className="card card-hero text-white fw-bold border-0 ">
+          <div className="col-md-6 d-flex  justify-content-center align-items-end order-2 order-md-1">
+            <article className="card card-hero text-white fw-bold border-0">
               <div className="card-header">
                 {media && (media[0].title ? media[0].title : media[0].name)}
               </div>
               <div className="card-body">
                 <div className="card-text">{media && media[0].overview}</div>
               </div>
-              <div className="card-footer border-0">
-                <button className="btn btn-secondary fw-bold border border-1 w-25">
+              <div className="card-footer border-0 d-flex justify-content-start align-items-start">
+                <button className="btn btn-secondary fw-bold border border-1">
                   Go
                 </button>
               </div>
             </article>
           </div>
-          <div className="col-md-6 d-flex justify-content-end align-items-start">
+          <div className="col-md-6 d-flex justify-content-end align-items-start order-1 order-md-2">
             <MainInputSearch />
           </div>
         </div>

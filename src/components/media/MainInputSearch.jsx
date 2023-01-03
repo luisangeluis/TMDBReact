@@ -11,8 +11,8 @@ const MainInputSearch = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(search)} className="row g-3">
-      <div className="col-auto">
+    <form onSubmit={handleSubmit(search)} className=" ">
+      <div className="col-auto d-flex flex-nowrap">
         <input
           type="text"
           className="form-control"
@@ -20,10 +20,13 @@ const MainInputSearch = () => {
           placeholder="Type your search"
           {...register('search', { required: true })}
         />
+        <button className="btn btn-secondary border border-1 text-nowrap">
+          Search
+        </button>
       </div>
-      <div className="col-auto">
+      {/* <div className="col-auto">
         <button className="btn btn-secondary border border-1">Search</button>
-      </div>
+      </div> */}
     </form>
   );
 };
