@@ -17,7 +17,7 @@ const useGetSimiliarMedia = (mediaType, mediaId) => {
         `${baseUrl}/${mediaType}/${mediaId}/similar?api_key=${key}&language=en-US&page=1`
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setSimilarMedia(res.data.results);
       })
       .catch((error) => console.log(error));

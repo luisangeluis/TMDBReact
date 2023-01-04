@@ -22,7 +22,7 @@ const useGetSeasonDetail = (tvId, seasonId) => {
       //   `https://api.themoviedb.org/3/tv/${tvId}/season/${seasonId}?api_key=${key}&language=en-US`
       // )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setDetailSeason(res.data);
       })
       .catch((error) => error);

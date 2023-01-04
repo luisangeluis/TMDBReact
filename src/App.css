@@ -20,6 +20,9 @@ ul {
 }
 .list-group {
 }
+.color-custom-blue {
+  color: #4476b6;
+}
 .bg-custom-blue {
   background-color: #4476b6;
 }
@@ -29,8 +32,28 @@ ul {
 .btn:hover {
   transform: scale(1.05);
 }
+.searched-group .card .btn {
+  transform: scale(1);
+}
+.similar-media .card .btn {
+  transform: scale(1);
+}
+.card-body {
+  overflow: hidden;
+  padding: 1rem;
+}
 /***********************************Header***************************************/
-
+.nav-link {
+  color: whitesmoke;
+}
+.nav-link.active {
+  background-color: #f0f0f025;
+  border-radius: 6px;
+}
+.navbar .nav-link:hover {
+  color: whitesmoke;
+  /* font-size: 1px; */
+}
 /***************************End Header*******************************************/
 /***********************************Navbar***************************************/
 .navbar {
@@ -63,6 +86,10 @@ ul {
 }
 /**************************End Navbar**********************************************/
 /***********************************Hero***************************************/
+.hero {
+  background-position: center center;
+  background-size: cover;
+}
 .hero .container {
   min-height: 60vh;
   background-repeat: no-repeat;
@@ -75,8 +102,13 @@ ul {
 }
 /******************************End Hero******************************************/
 /*******************************Carousel***************************************/
+.media-section .container {
+  background-color: #0f0f0f20;
+}
 .swiper {
   position: relative;
+  /* padding: 0 0.5rem; */
+  padding: 0 0.03rem;
 }
 .swiper .btn {
   transform: scale(1);
@@ -100,30 +132,9 @@ ul {
 }
 
 .swiper-slide:hover .card {
-  transform: scale(0.99);
-  position: relative;
-  z-index: 1;
-  top: -0.5rem;
-}
-
-.swiper-slide:hover .card-body {
-  max-height: 0;
-  overflow: hidden;
-}
-
-/* .swiper-slide:hover .card-body {
-  max-height: 0;
-  overflow: hidden;
-} */
-
-.swiper-slide:hover img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  transform: scale(1.03);
+  border-radius: 100%;
+  color: #2c74b3;
 }
 
 .swiper-button-prev,
@@ -186,6 +197,33 @@ ul {
 }
 
 /***************************End Carousel***************************************/
+/*******************************Main*******************************************/
+/***Search View****/
+.search-view {
+  min-height: 120vh;
+}
+.search-view .card {
+  height: 50vh;
+}
+.search-view .card button {
+  height: 80%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search-view .card img {
+  max-height: 100%;
+}
+
+/***End Search View***/
+.searched-group .card {
+  animation: fromCenterAnimation 2s;
+}
+
+.main-card {
+  animation: fromleftAnimation 2s;
+}
+/***************************End Main*******************************************/
 /***************************Detail Media***************************************/
 .detail-media .card {
   text-align: justify;
@@ -204,24 +242,7 @@ ul {
   max-height: 100%;
 }
 /**********************End Detail Media***************************************/
-/*************************Search View***************************************/
-.search-view {
-  min-height: 120vh;
-}
-.search-view .card {
-  height: 50vh;
-}
-.search-view .card button {
-  height: 80%;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.search-view .card img {
-  max-height: 100%;
-}
 
-/**********************End Search View***************************************/
 /*****************************Footer***************************************/
 .footer .container {
   min-width: 100%;
@@ -264,6 +285,7 @@ ul {
   animation: fromRightAnimation 2s;
   transition: translateX ease-in-out;
 }
+
 @keyframes fromRightAnimation {
   0% {
     transform: translateX(100px);
@@ -271,6 +293,35 @@ ul {
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fromCenterAnimation {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fromleftAnimation {
+  0% {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(25px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0px);
     opacity: 1;
   }
 }
@@ -299,6 +350,9 @@ ul {
     right: 3%;
   }
   /*************************Search view***************************************/
+  .search-view {
+    overflow-x: hidden;
+  }
   .search-view .card {
     height: 40vh;
   }
@@ -319,7 +373,7 @@ ul {
     height: 350px;
   }
   .swiper .card img {
-    height: 260px;
+    height: 250px;
   }
 }
 @media (min-width: 1200px) {

@@ -14,23 +14,29 @@ const Hero = ({ mediaType, querys }) => {
   const isLoad = useSelector((state) => state.loader);
 
   useEffect(() => {
-    //TODO Hacer que el loading aparezca cuando cambio entre movies y tv show
     dispatch(isLoading(true));
   }, []);
+
+  if (media) console.log(media);
 
   useEffect(() => {
     if (media) dispatch(isLoading(false));
   }, [media]);
 
-  if (media) console.log(media[0]);
+  // if (media) console.log(media[0]);
 
   return (
     <section
       className="hero my-2 my-md-2 rounded"
       style={{
-        background: `url(https://image.tmdb.org/t/p/w500${
+        backgroundImage: `url(https://image.tmdb.org/t/p/original${
           media && media[0].poster_path
-        }) center/cover`,
+        }) `,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        // backgroundAttachment: 'fixed',
+        backgroundColor: '#ffffff10',
       }}
     >
       {isLoad && <Loader />}
@@ -45,9 +51,7 @@ const Hero = ({ mediaType, querys }) => {
                 <div className="card-text">{media && media[0].overview}</div>
               </div>
               <div className="card-footer border-0 d-flex justify-content-center align-items-start justify-content-sm-start">
-                <button className="btn btn-secondary fw-bold border border-1">
-                  Go
-                </button>
+                <button className="btn btn-secondary fw-bold">Go</button>
               </div>
             </article>
           </div>

@@ -22,7 +22,7 @@ const DetailMedia = () => {
     else dispatch(isLoading(true));
   }, [detailMedia]);
 
-  console.log(detailMedia);
+  // console.log(detailMedia);
   return (
     <section className="detail-media flex-grow-1">
       {isLoad && <Loader />}

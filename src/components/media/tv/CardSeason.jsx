@@ -2,7 +2,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 
 const CardSeason = ({ season }) => {
-  console.log(season);
+  // console.log(season);
   let navigate = useNavigate();
   const { id } = useParams();
 

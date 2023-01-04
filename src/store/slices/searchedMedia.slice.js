@@ -27,7 +27,7 @@ export const getSearchedMedia = (query) => (dispatch) => {
   return axios
     .get(`${urlBase}?api_key=${key}`, { params: query })
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       localStorage.setItem('totalPagesSearch', res.data.total_pages);
       dispatch(setSearchedMedia(res.data.results));
     })
@@ -41,7 +41,7 @@ export const addMedia = (query) => (dispatch) => {
   return axios
     .get(`${urlBase}?api_key=${key}`, { params: query })
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       // if(re)
       dispatch(addSearchedMedia(res.data.results));
     })

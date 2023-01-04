@@ -40,7 +40,7 @@ const SearchView = () => {
     const nextPage = mediaByName.length / 20 + 1;
     if (nextPage <= Number(localStorage.getItem('totalPagesSearch'))) {
       query.page = nextPage;
-      console.log(nextPage);
+      // console.log(nextPage);
       dispatch(addMedia(query));
     }
   }

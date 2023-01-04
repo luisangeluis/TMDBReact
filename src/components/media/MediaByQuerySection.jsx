@@ -19,11 +19,11 @@ const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
 
   return (
     <>
-      <section className="media-section">
-        <div className="container">
-          <div className="d-flex justify-content-between my-2 my-md-3">
-            <h3 className="text-white">{subtitle}</h3>
-            <button className="btn btn-secondary" onClick={goToGenre}>
+      <section className="media-section my-5">
+        <div className="container p-2 p-md-3 rounded">
+          <div className="d-flex justify-content-between my-0">
+            <h3 className="text-white m-0">{subtitle}</h3>
+            <button className="btn btn-secondary fw-bold" onClick={goToGenre}>
               {`Go to ${subtitle}`}
             </button>
           </div>

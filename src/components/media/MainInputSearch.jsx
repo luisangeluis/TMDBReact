@@ -20,7 +20,7 @@ const MainInputSearch = () => {
           placeholder="Type your search"
           {...register('search', { required: true })}
         />
-        <button className="btn btn-secondary border border-1 text-nowrap">
+        <button className="btn btn-secondary fw-bold text-nowrap">
           Search
         </button>
       </div>

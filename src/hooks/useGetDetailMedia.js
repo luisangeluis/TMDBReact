@@ -21,7 +21,7 @@ const useGetDetailMedia = (mediaType, mediaId) => {
         params: query,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setDetail(res.data);
       })
       .catch((error) => console.log(error));
