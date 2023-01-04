@@ -47,7 +47,7 @@ const SearchByQueryView = () => {
       <section className="search-view">
         {isLoad && <Loader />}
         <div className="container">
-          <h3>{title}</h3>
+          <h3 className="subtitle-1">{title}</h3>
           <div className="row">
             <div className="col-md-12">
               {mediaByQuery && <SearchedGroup media={mediaByQuery} />}

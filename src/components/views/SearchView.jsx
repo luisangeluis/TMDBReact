@@ -49,6 +49,9 @@ const SearchView = () => {
     <section className="search-view">
       {isLoad && <Loader />}
       <div className="container">
+        <h2 className="subtitle-1">
+          <label htmlFor="">Results for: </label> {search}
+        </h2>
         <SearchedGroup media={mediaByName} />
       </div>
       <div ref={ref}></div>

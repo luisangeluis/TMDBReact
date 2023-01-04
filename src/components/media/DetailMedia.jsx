@@ -28,17 +28,19 @@ const DetailMedia = () => {
       {isLoad && <Loader />}
       <div className="container">
         <article className="card main-card my-2 my-md-3">
-          <div className="row bg-light border border-1 rounded m-2 m-md-1">
+          <div className="row rounded m-2 m-md-1">
             <div className=" col-md-5 d-flex justify-content-center align-items-center">
               <img
                 src={`https://image.tmdb.org/t/p/original${detailMedia?.poster_path}`}
                 alt=""
-                className="img-fluid detail_main-img my-1 my-md-2 w-100"
+                className="img-fluid detail_main-img my-1 my-md-2 w-100 rounded"
               />
             </div>
             <div className=" col-md-7 p-2">
               <article className="card-body  border-0 p-2 p-md-3">
-                <h3 className="card-title">{detailMedia?.title}</h3>
+                <h3 className="card-title">
+                  {detailMedia?.title ? detailMedia?.title : detailMedia?.name}
+                </h3>
                 <p className="card-text">{detailMedia?.overview}</p>
               </article>
               <h3>Genres</h3>

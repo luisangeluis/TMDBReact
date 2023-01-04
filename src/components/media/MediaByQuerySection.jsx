@@ -1,4 +1,5 @@
 //Depedencies
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 //Hooks
 import useGetMediaByQuerySection from '../../hooks/useGetMediaByQuerySection';
@@ -9,6 +10,7 @@ import SwiperCarousel from './SwiperCarousel';
 const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
   const [media] = useGetMediaByQuerySection(mediaType, query);
   let navigate = useNavigate();
+  const [isEnd, setIsEnd] = useState();
 
   const goToGenre = () => {
     localStorage.clear();
@@ -22,12 +24,15 @@ const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
       <section className="media-section my-5">
         <div className="container p-2 p-md-3 rounded">
           <div className="d-flex justify-content-between my-0">
-            <h3 className="text-white m-0">{subtitle}</h3>
-            <button className="btn btn-secondary fw-bold" onClick={goToGenre}>
+            <h3 className="text-white m-0 subtitle-1">{subtitle}</h3>
+            <button
+              className={`btn btn-secondary fw-bold ${isEnd ? 'prueba' : ''}`}
+              onClick={goToGenre}
+            >
               {`Go to ${subtitle}`}
             </button>
           </div>
-          {media && <SwiperCarousel mediaItems={media} />}
+          {media && <SwiperCarousel mediaItems={media} isEnd={setIsEnd} />}
         </div>
       </section>
     </>

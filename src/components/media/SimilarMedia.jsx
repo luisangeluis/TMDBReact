@@ -5,8 +5,8 @@ import CardMedia from './CardMedia';
 const SimilarMedia = ({ mediaType, mediaId }) => {
   const [similarMedia] = useGetSimiliarMedia(mediaType, mediaId);
   return (
-    <article className="row similar-media">
-      <h3>Similar media</h3>
+    <article className="row similar-media my-3 my-md-4">
+      <h3 className="subtitle-1">Similar media</h3>
       {similarMedia &&
         similarMedia.map((item) => {
           return (

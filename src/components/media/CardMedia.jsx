@@ -3,11 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 const CardMedia = ({ item }) => {
   let navigate = useNavigate();
-  // console.log(item);
-  const goToDetail = () => {
-    // console.log(item);
 
-    // console.log(item.media_type);
+  const goToDetail = () => {
     if (item.original_title) navigate(`/media-type/movie/id/${item.id}`);
     if (item.original_name) navigate(`/media-type/tv/id/${item.id}`);
   };

@@ -15,6 +15,9 @@ const CardEpisode = ({ episode }) => {
           <div className="card-body">
             <h5>Episode name: {episode?.name}</h5>
             <p className="card-text">{episode?.overview}</p>
+            <p className="card-subtitle text-muted fw-bold">
+              Air date: {episode?.air_date}
+            </p>
           </div>
         </div>
       </div>
