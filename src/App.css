@@ -98,6 +98,34 @@ ul {
 .swiper .card img {
   height: 320px;
 }
+
+.swiper-slide:hover .card {
+  transform: scale(0.99);
+  position: relative;
+  z-index: 1;
+  top: -0.5rem;
+}
+
+.swiper-slide:hover .card-body {
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* .swiper-slide:hover .card-body {
+  max-height: 0;
+  overflow: hidden;
+} */
+
+.swiper-slide:hover img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .swiper-button-prev,
 .swiper-button-next {
   width: 5vh;
@@ -106,6 +134,7 @@ ul {
   position: absolute;
   z-index: 2;
   padding: 10px;
+  transition: all ease-in-out 350ms;
 }
 
 .swiper-button-prev {
@@ -259,6 +288,9 @@ ul {
   .swiper .swiper-slide {
     width: 50%;
   }
+  .swiper .card {
+    height: 380px;
+  }
   .swiper-button-prev {
     left: 3%;
   }
@@ -284,7 +316,7 @@ ul {
   }
 
   .swiper .card {
-    height: 360px;
+    height: 350px;
   }
   .swiper .card img {
     height: 260px;

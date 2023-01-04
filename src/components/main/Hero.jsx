@@ -44,7 +44,7 @@ const Hero = ({ mediaType, querys }) => {
               <div className="card-body">
                 <div className="card-text">{media && media[0].overview}</div>
               </div>
-              <div className="card-footer border-0 d-flex justify-content-start align-items-start">
+              <div className="card-footer border-0 d-flex justify-content-center align-items-start justify-content-sm-start">
                 <button className="btn btn-secondary fw-bold border border-1">
                   Go
                 </button>
