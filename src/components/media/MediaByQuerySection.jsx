@@ -26,9 +26,17 @@ const MediaByQuerySection = ({ mediaType, query, subtitle }) => {
           <div className="d-flex justify-content-between my-0">
             <h3 className="text-white m-0 subtitle-1">{subtitle}</h3>
             <button
-              className={`btn btn-secondary fw-bold ${isEnd ? 'prueba' : ''}`}
+              className={`btn btn-animation-1 btn-secondary fw-bold`}
               onClick={goToGenre}
             >
+              <div
+                className={`alert btn_alert m-0 d-flex justify-content-center align-items-center  ${
+                  isEnd ? 'left-0' : ''
+                }`}
+                role="alert"
+              >
+                Go to all <i className="fa-solid fa-arrow-right p-1"></i>
+              </div>
               {`Go to ${subtitle}`}
             </button>
           </div>
