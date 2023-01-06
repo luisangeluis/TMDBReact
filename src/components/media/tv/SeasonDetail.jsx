@@ -10,7 +10,7 @@ const SeasonDetail = () => {
   const [seasonDetail] = useGetSeasonDetail(tvId, seasonId);
   console.log(seasonDetail);
   return (
-    <section className="season-detail flex-grow-1">
+    <section className="season-detail flex-grow-1 margin-top_main">
       <div className="container">
         <div className="row">
           <h3> SEASON NAME: {seasonDetail?.name}</h3>

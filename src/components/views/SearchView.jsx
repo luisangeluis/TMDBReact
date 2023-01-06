@@ -46,7 +46,7 @@ const SearchView = () => {
   }
 
   return (
-    <section className="search-view">
+    <section className="search-view margin-top_main">
       {isLoad && <Loader />}
       <div className="container">
         <h2 className="subtitle-1">

@@ -44,7 +44,7 @@ const SearchByQueryView = () => {
 
   return (
     <>
-      <section className="search-view">
+      <section className="search-view margin-top_main">
         {isLoad && <Loader />}
         <div className="container">
           <h3 className="subtitle-1">{title}</h3>

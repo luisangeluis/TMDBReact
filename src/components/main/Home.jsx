@@ -7,6 +7,7 @@ import {
 //Components
 import Hero from './Hero';
 import MediaByQuerySection from '../media/MediaByQuerySection';
+import { useEffect } from 'react';
 
 const Home = () => {
   const arrayOfSections = [
@@ -45,8 +46,15 @@ const Home = () => {
     },
   ];
 
+  // if (window.scrollY > 0)
+  window.scroll({ top: 0 });
+
+  // useEffect(() => {
+  //   window.scroll({ top: 0 });
+  // }, []);
+
   return (
-    <section className="home flex-grow-1">
+    <section className="home flex-grow-1 margin-top_main">
       <div className="container">
         <div className="row">
           <div className="col-12 ">

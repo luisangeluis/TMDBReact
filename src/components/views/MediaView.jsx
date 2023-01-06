@@ -15,6 +15,9 @@ const MediaView = () => {
   const genresIds = useSelector((state) => state.genresMedia);
   const isLoading = useSelector((state) => state.loader);
 
+  window.scroll({ top: 0 });
+  window.scroll;
+
   useEffect(() => {
     dispatch(getGenresMedia(type));
   }, [type]);
@@ -33,7 +36,7 @@ const MediaView = () => {
   };
 
   return (
-    <section className="media-view">
+    <section className="media-view margin-top_main">
       {isLoading && <Loader />}
       <div className="container">
         <div className="row">

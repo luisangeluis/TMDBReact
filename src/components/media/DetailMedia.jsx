@@ -24,7 +24,7 @@ const DetailMedia = () => {
 
   // console.log(detailMedia);
   return (
-    <section className="detail-media flex-grow-1">
+    <section className="detail-media flex-grow-1 margin-top_main">
       {isLoad && <Loader />}
       <div className="container">
         <article className="card main-card my-2 my-md-3">

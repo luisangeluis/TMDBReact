@@ -16,7 +16,11 @@ const CardSeason = ({ season }) => {
         <div className="row">
           <div className=" col-md-4">
             <img
-              src={`https://image.tmdb.org/t/p/w500${season?.poster_path}`}
+              src={
+                season?.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${season?.poster_path}`
+                  : '/src/assets/images/no-image.png'
+              }
               alt=""
               className="img-fluid rounded w-100 p-1 h-100"
             />
