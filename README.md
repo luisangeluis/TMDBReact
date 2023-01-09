@@ -29,5 +29,5 @@ Por el momento se puede buscar por nombre o por genero de la pelicula y/o serie,
 - react-intersection-observer
 - swiper
 
-## Documentación.
+## Documentación. 
 
