@@ -18,7 +18,7 @@ const Hero = ({ mediaType, querys }) => {
     dispatch(isLoading(true));
   }, []);
 
-  if (media) console.log(media);
+  // if (media) console.log(media);
 
   useEffect(() => {
     if (media) dispatch(isLoading(false));

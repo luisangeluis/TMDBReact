@@ -13,7 +13,7 @@ const SeasonDetail = () => {
     <section className="season-detail flex-grow-1 margin-top_main">
       <div className="container">
         <div className="row">
-          <h3> SEASON NAME: {seasonDetail?.name}</h3>
+          <h3 className="subtitle-1"> SEASON NAME: {seasonDetail?.name}</h3>
           <div className="col-12">
             {seasonDetail?.episodes &&
               seasonDetail?.episodes.map((episode) => {
