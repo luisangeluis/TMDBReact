@@ -10,6 +10,7 @@ Pagina realizada para consultar informacion sobre tus peliculas y series favorit
 Por el momento se puede buscar por nombre o por genero de la pelicula y/o serie, ademas se puede ver mas detalle sobre las series como por ejemplo la cantidad de temporadas y capitulos por temporada.
 
 ## Link del deploy
+- Proyecto en [Netlify](https://react-tmdb-api.netlify.app/ "Proyecto en netlify") <br />
 - Proyecto en [Github](https://github.com/luisangeluis/TMDBReact "Proyecto en github")
 
 ## Frameworks
