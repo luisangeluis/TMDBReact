@@ -1,32 +1,60 @@
 //Dependencies
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+//Slices
+import {
+  addMedia,
+  getSearchedMedia,
+} from '../../store/slices/searchedMedia.slice';
+import { isLoading } from '../../store/slices/loader.slice';
+//Component
 import SearchedGroup from '../media/SearchedGroup';
+import Loader from '../shared/Loader';
 
 const SearchView = () => {
   const { search } = useParams();
-  const [media, setMedia] = useState();
+  const { ref, inView, entry } = useInView({ threshold: 0 });
+  const query = {
+    query: search,
+    language: 'en-US',
+    include_adult: false,
+  };
+  const dispatch = useDispatch();
+  const mediaByName = useSelector((state) => state.searchedMedia);
+  const isLoad = useSelector((state) => state.loader);
 
   useEffect(() => {
-    getSearch();
-  }, [search]);
+    // dispatch(isLoading(true));
+    localStorage.setItem('currentPageSearch', 1);
+    dispatch(getSearchedMedia(query));
+  }, []);
 
-  console.log(media);
-  const getSearch = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/search/multi?api_key=b0dd442bf37e49eecbb517b186e6f5ee&language=en-US&page=1&include_adult=false&query=${search}`
-      )
-      .then((res) => setMedia(res.data.results))
-      .catch((error) => console.log(error.message));
-  };
+  useEffect(() => {
+    if (mediaByName) dispatch(isLoading(false));
+    else dispatch(isLoading(true));
+  }, [mediaByName]);
+
+  if (inView && mediaByName) {
+    const nextPage = mediaByName.length / 20 + 1;
+    if (nextPage <= Number(localStorage.getItem('totalPagesSearch'))) {
+      query.page = nextPage;
+      // console.log(nextPage);
+      dispatch(addMedia(query));
+    }
+  }
 
   return (
-    <section className="search-view">
+    <section className="search-view margin-top_main">
+      {isLoad && <Loader />}
       <div className="container">
-        <SearchedGroup media={media} />
+        <h2 className="subtitle-1">
+          <label htmlFor="">Results for: </label> {search}
+        </h2>
+        <SearchedGroup media={mediaByName} />
       </div>
+      <div ref={ref}></div>
     </section>
   );
 };

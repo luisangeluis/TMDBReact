@@ -1,45 +1,48 @@
 //Depedencies
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import useGetPopularTv from '../../hooks/useGetPopularTv';
+import { useParams } from 'react-router-dom';
 //Slices
 import { getGenresMedia } from '../../store/slices/genresMedia.slice';
 //Components
 import Hero from '../main/Hero';
-import MediaByGenreSection from '../media/MediaByGenreSection';
 import MediaByQuerySection from '../media/MediaByQuerySection';
+import Loader from '../shared/Loader';
 
 const MediaView = () => {
+  const { type } = useParams();
   const dispatch = useDispatch();
-  const location = useLocation();
-  const mediaType = location.pathname.replace(/\//gi, '');
   const genresIds = useSelector((state) => state.genresMedia);
-  const [mediaItems] = useGetPopularTv(mediaType);
+  const isLoading = useSelector((state) => state.loader);
 
-  if (genresIds) {
-    console.log(genresIds);
-  }
+  window.scroll({ top: 0 });
+  window.scroll;
+
   useEffect(() => {
-    dispatch(getGenresMedia(mediaType));
-  }, [mediaType]);
+    dispatch(getGenresMedia(type));
+  }, [type]);
+
+  const makeQuerySection = (genre) => {
+    const myQuery = { with_genres: genre.id };
+
+    return (
+      <MediaByQuerySection
+        mediaType={type}
+        query={myQuery}
+        subtitle={genre.name}
+        key={genre.name}
+      />
+    );
+  };
 
   return (
-    <section className="media-view">
+    <section className="media-view margin-top_main">
+      {isLoading && <Loader />}
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <Hero movies={mediaItems} />
-            {genresIds &&
-              genresIds.map((genre) => (
-                <MediaByGenreSection
-                  mediaType={mediaType}
-                  // query={{ with_genres: genre.id }}
-                  genreId={genre.id}
-                  name={genre.name}
-                  key={genre.id}
-                />
-              ))}
+            <Hero mediaType={type} querys={{ language: 'en-US', page: 1 }} />
+            {genresIds && genresIds.map((genre) => makeQuerySection(genre))}
           </div>
         </div>
       </div>

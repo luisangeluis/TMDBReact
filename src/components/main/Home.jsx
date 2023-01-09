@@ -1,79 +1,76 @@
-//Dependencies
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import moment from 'moment';
-//Custom hooks
-import useGetBestMoviesOfYeAR from '../../hooks/useGetBestMoviesOfYear';
-//Slices
-import { getUsers } from '../../store/slices/users.slice';
-//Components
-import Hero from './Hero';
-import MediaByQuerySection from '../media/MediaByQuerySection';
 //Utils
 import {
   getDateLastMonth,
   getCurrentDate,
   getCurrentYear,
 } from '../../utils/getFechas';
+//Components
+import Hero from './Hero';
+import MediaByQuerySection from '../media/MediaByQuerySection';
+import { useEffect } from 'react';
 
 const Home = () => {
-  const popularMedia = {
-    sort_by: 'popularity.desc',
-  };
-  const premieresMedia = {
-    'primary_release_date.gte': getDateLastMonth(),
-    'primary_release_date.lte': getCurrentDate(),
-  };
-  const popularKidsMedia = {
-    certification_country: 'US',
-    'certification.lte': 'G',
-    sort_by: 'popularity.desc',
-    include_adult: false,
-  };
-  const bestMediaOfYear = {
-    primary_release_year: getCurrentYear(),
-    sort_by: 'vote_average.desc',
-  };
+  const arrayOfSections = [
+    {
+      mediaType: 'movie',
+      name: 'Popular movies',
+      query: {
+        sort_by: 'popularity.desc',
+      },
+    },
+    {
+      mediaType: 'movie',
+      name: 'Premieres movies',
+      query: {
+        'primary_release_date.gte': getDateLastMonth(),
+        'primary_release_date.lte': getCurrentDate(),
+      },
+    },
+    {
+      mediaType: 'movie',
+      name: 'Popular movies kids',
+      query: {
+        certification_country: 'US',
+        'certification.lte': 'G',
+        sort_by: 'popularity.desc',
+        include_adult: false,
+      },
+    },
+    {
+      mediaType: 'movie',
+      name: 'Best movies of year',
+      query: {
+        primary_release_year: getCurrentYear(),
+        sort_by: 'vote_average.desc',
+      },
+    },
+  ];
 
-  const [getBestMoviesOfYear] = useGetBestMoviesOfYeAR(moment().format('YYYY'));
+  // if (window.scrollY > 0)
+  window.scroll({ top: 0 });
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUsers());
-  }, []);
+  // useEffect(() => {
+  //   window.scroll({ top: 0 });
+  // }, []);
 
   return (
-    <section className="home flex-grow-1">
+    <section className="home flex-grow-1 margin-top_main">
       <div className="container">
         <div className="row">
           <div className="col-12 ">
-            <Hero movies={getBestMoviesOfYear} />
+            <Hero mediaType={'movie'} querys={{ language: 'en-US', page: 1 }} />
           </div>
         </div>
-        {/* <h3 className="d-inline">Popular movies</h3> */}
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={popularMedia}
-          subtitle={'Popular movies'}
-        />
-        {/* <h3>Premieres movies</h3> */}
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={premieresMedia}
-          subtitle={'Premieres movies'}
-        />
-        {/* <h3>Popular movies kids</h3> */}
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={popularKidsMedia}
-          subtitle={'Popular movies kids'}
-        />
-        {/* <h3>Best movies of year</h3> */}
-        <MediaByQuerySection
-          mediaType={'movie'}
-          query={bestMediaOfYear}
-          subtitle={'Best movies of year'}
-        />
+        {arrayOfSections.map((section, i) => {
+          return (
+            <MediaByQuerySection
+              mediaType={section.mediaType}
+              query={section.query}
+              subtitle={section.name}
+              key={i}
+            />
+          );
+        })}
       </div>
     </section>
   );

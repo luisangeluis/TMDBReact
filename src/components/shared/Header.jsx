@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-custom-green">
-      <div className="container-fluid p-3 p-lg-1">
-        <a className="navbar-brand" href="#">
-          TMDB Api
+    <nav className="navbar navbar-expand-lg bg-custom-green fixed-top">
+      <div className="container-fluid px-3 px-md-4">
+        <a className="navbar-brand fw-bolder" href="#">
+          TMDB API
         </a>
         <button
           className="navbar-toggler"
@@ -21,35 +21,24 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 p-3">
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <NavLink
-                to="/"
+                to="media-type/movie"
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
               >
-                Home
-              </NavLink>
-            </li> */}
-
-            <li className="nav-item">
-              <NavLink
-                to="/movie"
-                className={({ isActive }) =>
-                  isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
-                }
-              >
-                Movies
+                MOVIES
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                to="/tv"
+                to="media-type/tv"
                 className={({ isActive }) =>
-                  isActive ? 'nav-link active fw-bolder' : 'nav-link text-white'
+                  isActive ? 'nav-link active' : 'nav-link'
                 }
               >
-                Tv shows
+                TV SHOWS
               </NavLink>
             </li>
           </ul>

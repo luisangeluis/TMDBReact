@@ -2,17 +2,26 @@
 import axios from 'axios';
 import { createSlice } from '@reduxjs/toolkit';
 
+// const initialState = { value: [] };
+
 export const mediaByQuerySlice = createSlice({
   name: 'queryMedia',
-  initialState: null,
+  initialState: [],
   reducers: {
     setMediaByQuery: (state, action) => {
+      // const newValue = action.payload;
+      // return [...state, ...newValue];
       return action.payload;
+    },
+
+    addMediaByQuery: (state, action) => {
+      const newValue = action.payload;
+      return [...state, ...newValue];
     },
   },
 });
 
-export const { setMediaByQuery } = mediaByQuerySlice.actions;
+export const { setMediaByQuery, addMediaByQuery } = mediaByQuerySlice.actions;
 export default mediaByQuerySlice.reducer;
 
 export const getMediaByQuery = (mediaType, query) => (dispatch) => {
@@ -24,21 +33,22 @@ export const getMediaByQuery = (mediaType, query) => (dispatch) => {
     })
     .then((res) => {
       console.log(res);
+      localStorage.setItem('totalPageSearchQuery', res.data.total_pages);
       dispatch(setMediaByQuery(res.data.results));
     })
-    .catch((error) => console.log(error.message));
+    .catch((error) => console.log(error));
 };
 
-export const getMediaByName = (search) => (dispatch) => {
+export const addMoreMedia = (mediaType, query) => (dispatch) => {
   const key = 'b0dd442bf37e49eecbb517b186e6f5ee';
 
   return axios
-    .get(
-      `https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&include_adult=false&query=${search}`
-    )
+    .get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=${key}`, {
+      params: query,
+    })
     .then((res) => {
-      console.log(res.data.results);
-      dispatch(setMediaByQuery(res.data.results));
+      console.log(res);
+      dispatch(addMediaByQuery(res.data.results));
     })
     .catch((error) => console.log(error));
 };

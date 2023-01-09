@@ -7,20 +7,22 @@ import 'swiper/css';
 //Components
 import CardMedia from './CardMedia';
 
-const SwiperCarousel = ({ mediaItems }) => {
-  // console.log(mediaItems);
+const SwiperCarousel = ({ mediaItems, isEnd }) => {
   return (
     <section className="row my-2 my-md-3">
       <div className="col-12">
         <Swiper
-          spaceBetween={2}
+          spaceBetween={0}
           slidesPerView={'auto'}
-          // pagination={{
-          //   clickable: true,
-          // }}
-          // modules={[Pagination]}
           modules={[Navigation]}
           navigation={true}
+          //TODO Animar el boton al llegar al final del carousel
+          onReachEnd={() => {
+            isEnd(true);
+            setTimeout(() => {
+              isEnd(false);
+            }, 3500);
+          }}
         >
           {mediaItems &&
             mediaItems.map((element) => (
