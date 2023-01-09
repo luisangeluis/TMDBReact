@@ -22,7 +22,7 @@ const DetailMedia = () => {
     else dispatch(isLoading(true));
   }, [detailMedia]);
 
-  // console.log(detailMedia);
+  console.log(detailMedia);
   return (
     <section className="detail-media flex-grow-1 margin-top_main">
       {isLoad && <Loader />}
@@ -43,8 +43,8 @@ const DetailMedia = () => {
                 </h3>
                 <p className="card-text">{detailMedia?.overview}</p>
               </article>
-              <h3>Genres</h3>
-              <ul className="list-group flex-row flex-wrap">
+              <h3 className="px-2 px-md-3 m-0">Genres</h3>
+              <ul className="list-group flex-row flex-wrap p-2 p-md-3">
                 {detailMedia?.genres.map((genre) => {
                   return (
                     <li
@@ -56,6 +56,16 @@ const DetailMedia = () => {
                   );
                 })}
               </ul>
+              {type === 'tv' && (
+                <>
+                  <h3 className="px-2 px-md-3">Available in:</h3>
+                  <ul className="list-group flex-row flex-wrap px-2 px-md-3 fw-bold text-white">
+                    {detailMedia?.networks.map((network) => {
+                      return <li key={network.name}>{network.name}</li>;
+                    })}
+                  </ul>
+                </>
+              )}
             </div>
           </div>
         </article>
