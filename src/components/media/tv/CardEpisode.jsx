@@ -9,7 +9,7 @@ const CardEpisode = ({ episode }) => {
             src={
               episode?.still_path
                 ? `https://image.tmdb.org/t/p/w500${episode?.still_path}`
-                : '/src/assets/images/no-image.png'
+                : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png'
             }
             alt=""
             className="img-fluid rounded w-100 p-1 h-100"
