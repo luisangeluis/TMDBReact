@@ -19,7 +19,7 @@ const CardMedia = ({ item }) => {
           src={
             item?.poster_path
               ? `https://image.tmdb.org/t/p/w500${item?.poster_path}`
-              : DEFAULT_IMAGE
+              : process.env.DEFAULT_IMAGE
           }
           alt=""
           className="img-fluid rounded w-100 p-1"
